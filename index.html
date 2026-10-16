@@ -651,25 +651,25 @@ footer.base a{text-decoration:none}
   .route-tasks a:hover{color:var(--text)!important;text-decoration:underline;text-underline-offset:.2em}
 }
 
-/* register: the gorse chapter, with a cream paper ledger */
-.gorse{background:var(--gorse);color:var(--text);
-  --on-ink:var(--text);--on-ink-muted:oklch(0.36 0.045 75);--ink-line:oklch(0.25 0.012 60 / .28);
-  --ink:var(--gorse);--ink-2:oklch(0.82 0.15 92);--ink-3:oklch(0.80 0.15 90);--heather:var(--text)}
-.gorse .kicker{color:var(--text)}
-.gorse .h2 em{background:none;color:inherit;text-decoration:underline;text-decoration-thickness:.06em;text-underline-offset:.12em}
+/* register: a warm stone chapter, gorse used only as accent */
+.gorse{background:var(--stone);color:var(--text);
+  --on-ink:var(--text);--on-ink-muted:var(--muted);--ink-line:oklch(0.25 0.012 60 / .22);
+  --ink:var(--stone);--ink-2:var(--stone-2);--ink-3:var(--stone-2);--heather:var(--plum)}
 .gorse :focus-visible{outline-color:var(--text)}
 .reg-facts{border-top:0;gap:.75rem}
-.reg-facts div{padding:1rem 1.1rem;border:1.5px solid var(--text);border-radius:14px;background:var(--gorse-soft)}
-.seg{border:1.5px solid var(--text);border-radius:999px;padding:4px}
+.reg-facts div{padding:1rem 1.1rem;border:1px solid oklch(0.25 0.012 60 / .18);border-radius:14px;background:var(--paper)}
+.reg-facts dt{display:flex;align-items:center;gap:.45rem}
+.reg-facts dt::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gorse);flex:none}
+.seg{border:1px solid oklch(0.25 0.012 60 / .25);border-radius:999px;padding:4px;background:var(--paper)}
 .seg button{border-radius:999px}
 .seg button[aria-pressed="true"]{background:var(--text);color:var(--gorse)}
-.ledger{background:var(--paper);border:1.5px solid var(--text);border-radius:18px;padding:0 1.5rem;
+.ledger{background:var(--paper);border:1px solid oklch(0.25 0.012 60 / .18);border-radius:18px;box-shadow:0 30px 60px -45px oklch(0.25 0.03 60 / .45);padding:0 1.5rem;
   --ink-line:var(--rule);--ink-2:var(--stone);--ink-3:var(--stone-2);--on-ink-muted:var(--muted);--heather:var(--plum)}
 .ledger .l-headrow{border-bottom-color:var(--rule)}
 .ledger .l-item:last-child{border-bottom:0}
 .ledger .l-row .n{color:var(--plum);font-weight:600}
 .l-row[aria-expanded="true"] .tog{background:var(--gorse);border-color:var(--text)}
-.ledger-more{border:1.5px solid var(--text);color:var(--text)}
+.ledger-more{border:1px solid oklch(0.25 0.012 60 / .3);color:var(--text);background:var(--paper)}
 @media (hover:hover){.ledger-more:hover{background:var(--text);color:var(--gorse)}}
 .reg-other a{border-bottom-color:oklch(0.25 0.012 60 / .28)}
 @media (hover:hover){.reg-other a:hover{color:var(--text);text-decoration:underline;text-underline-offset:.2em}}
