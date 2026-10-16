@@ -4,7 +4,7 @@ description: A modern, transparent, firm regulator. Evolved aubergine ink on war
 ---
 
 <!-- SEED — re-run $impeccable document once there's code to capture the actual tokens and components. -->
-<!-- First build exists: home.html (2026-10-16). Fonts chosen: Source Serif 4 (display, opsz) + Schibsted Grotesk (UI/body) + Geist Mono (data only). Tokens live as OKLCH custom properties on :root in home.html. Run $impeccable document in scan mode to promote them into this file. -->
+<!-- First build exists: home.html (2026-10-16). Fonts chosen (user pick from type-specimen.html, option B 'Reading Room'): Literata (display/headings, opsz) + Commissioner (UI/body/data with tabular figures). No monospace: it read as AI/clinical. Source Serif 4 + Schibsted + Geist Mono were rejected as too cold. Tokens live as OKLCH custom properties on :root in home.html. Run $impeccable document in scan mode to promote them into this file. -->
 
 # Design System: Alderney Gambling Control Commission
 
