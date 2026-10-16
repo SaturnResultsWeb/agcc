@@ -1,0 +1,1103 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alderney Gambling Control Commission</title>
+<meta name="description" content="The Alderney Gambling Control Commission licenses and supervises online gambling from Alderney, Channel Islands. Check a licence, apply, or make a complaint.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Schibsted+Grotesk:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ink:oklch(0.225 0.052 338);
+  --ink-2:oklch(0.27 0.06 338);
+  --ink-3:oklch(0.33 0.065 338);
+  --ink-line:oklch(0.40 0.05 338);
+  --on-ink:oklch(0.965 0.008 75);
+  --on-ink-muted:oklch(0.80 0.03 338);
+  --heather:oklch(0.80 0.06 340);
+  --plum:oklch(0.43 0.12 338);
+  --paper:oklch(0.972 0.007 75);
+  --stone:oklch(0.932 0.012 70);
+  --stone-2:oklch(0.90 0.014 68);
+  --text:oklch(0.235 0.02 338);
+  --muted:oklch(0.47 0.018 338);
+  --rule:oklch(0.86 0.012 70);
+  --ok:oklch(0.47 0.11 155);
+  --ok-on-ink:oklch(0.84 0.11 155);
+  --no:oklch(0.52 0.15 30);
+  --no-on-ink:oklch(0.82 0.09 40);
+
+  --serif:"Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --sans:"Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --mono:"Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --ease-out:cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-io:cubic-bezier(0.77, 0, 0.175, 1);
+  --gutter:clamp(1rem, 4vw, 3.5rem);
+  --max:1440px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--text);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;font-kerning:normal;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3,h4{margin:0;font-weight:400;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+ul,ol{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--plum);outline-offset:3px;border-radius:2px}
+.ink :focus-visible{outline-color:var(--heather)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:var(--gutter);top:-100px;z-index:100;background:var(--ink);color:var(--on-ink);padding:.75rem 1rem;border-radius:4px;text-decoration:none}
+.skip:focus{top:.75rem}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+.mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.tnum{font-variant-numeric:tabular-nums}
+main{overflow-x:clip}
+section[id],#check{scroll-margin-top:96px}
+
+/* fixed grain, never on scrolling layers */
+.grain{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- buttons & links ---------- */
+.btn{display:inline-flex;align-items:center;gap:.6rem;min-height:48px;padding:.8rem 1.25rem;border-radius:4px;font-weight:500;font-size:1rem;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background-color 200ms ease,color 200ms ease,border-color 200ms ease,transform 160ms var(--ease-out)}
+.btn:active{transform:scale(0.97)}
+.btn svg{width:18px;height:18px;transition:transform 200ms var(--ease-out)}
+.btn-paper{background:var(--on-ink);color:var(--ink)}
+.btn-ghost-ink{border-color:var(--ink-line);color:var(--on-ink)}
+.btn-ink{background:var(--ink);color:var(--on-ink)}
+.btn-line{border-color:var(--text);color:var(--text)}
+@media (hover:hover) and (pointer:fine){
+  .btn-paper:hover{background:var(--heather)}
+  .btn-ghost-ink:hover{border-color:var(--heather);color:var(--heather)}
+  .btn-ink:hover{background:var(--ink-3)}
+  .btn-line:hover{background:var(--text);color:var(--paper)}
+  .btn:hover svg{transform:translateX(3px)}
+}
+.link{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.22em;text-decoration-color:color-mix(in oklch,currentColor 45%,transparent);transition:text-decoration-color 200ms ease,color 200ms ease}
+@media (hover:hover){.link:hover{text-decoration-color:currentColor}}
+
+/* ---------- header ---------- */
+.utility{background:var(--paper);border-bottom:1px solid var(--rule);font-size:.875rem;color:var(--muted)}
+.utility .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:40px}
+.utility ul{display:flex;gap:1.5rem;flex-wrap:wrap}
+.utility a{text-decoration:none}
+@media (hover:hover){.utility a:hover{color:var(--text)}}
+.utility .u-left{display:flex;gap:1.5rem}
+header.site{position:sticky;top:0;z-index:50;background:color-mix(in oklch,var(--paper) 94%,transparent);backdrop-filter:saturate(1.2) blur(10px);-webkit-backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--rule)}
+header.site .bar{display:flex;align-items:center;justify-content:space-between;gap:2rem;min-height:76px}
+.brand{display:flex;align-items:center;gap:.9rem;text-decoration:none;color:var(--text)}
+.brand-mark{width:46px;height:46px;flex:none;border-radius:6px;background:var(--ink);display:grid;place-items:center;position:relative;overflow:hidden}
+.brand-mark svg{width:34px;height:auto}
+.brand-mark::after{content:"";position:absolute;left:7px;right:7px;bottom:9px;height:1px;background:var(--heather);opacity:.8}
+.brand-words{display:flex;flex-direction:column;line-height:1.05}
+.brand-words b{font-family:var(--serif);font-weight:600;font-size:1.45rem;letter-spacing:-.01em;font-variation-settings:"opsz" 40}
+.brand-words span{font-size:.72rem;color:var(--muted);letter-spacing:.02em;margin-top:.2rem}
+nav.primary>ul{display:flex;align-items:center;gap:.25rem}
+nav.primary .top{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;padding:.5rem .8rem;border-radius:4px;background:none;border:0;cursor:pointer;text-decoration:none;font-size:.98rem;font-weight:500;transition:background-color 200ms ease}
+nav.primary .top svg{width:12px;height:12px;transition:transform 220ms var(--ease-out)}
+nav.primary .top[aria-expanded="true"]{background:var(--stone)}
+nav.primary .top[aria-expanded="true"] svg{transform:rotate(180deg)}
+@media (hover:hover){nav.primary .top:hover{background:var(--stone)}}
+.nav-cta{margin-left:.5rem}
+.panel{position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--rule);box-shadow:0 30px 60px -40px color-mix(in oklch,var(--ink) 40%,transparent);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity 180ms ease,transform 220ms var(--ease-out),visibility 0s linear 220ms}
+.panel.open{opacity:1;visibility:visible;transform:none;transition:opacity 180ms ease,transform 220ms var(--ease-out)}
+.panel .wrap{display:grid;grid-template-columns:minmax(220px,1fr) 2.2fr;gap:3rem;padding-block:2.25rem 2.75rem}
+.panel-lede h3{font-family:var(--serif);font-size:1.9rem;line-height:1.1;letter-spacing:-.01em;font-variation-settings:"opsz" 48}
+.panel-lede p{color:var(--muted);margin-top:.75rem;max-width:34ch;font-size:.98rem}
+.panel-links{display:grid;grid-template-columns:repeat(3,1fr);gap:0 2rem}
+.panel-links a{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.85rem 0;border-top:1px solid var(--rule);text-decoration:none;font-weight:500}
+.panel-links a small{display:block;font-weight:400;color:var(--muted);font-size:.85rem;margin-top:.15rem}
+@media (hover:hover){.panel-links a:hover{color:var(--plum)}}
+.menu-btn{display:none;min-height:44px;min-width:44px;padding:.5rem .9rem;border:1px solid var(--text);border-radius:4px;background:none;cursor:pointer;font-weight:500}
+.mobile-nav{display:none}
+
+/* ---------- hero ---------- */
+.ink{background:var(--ink);color:var(--on-ink)}
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero-chart{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.hero-chart .grat{position:absolute;inset:0;background-image:linear-gradient(to right,color-mix(in oklch,var(--on-ink) 7%,transparent) 1px,transparent 1px),linear-gradient(to bottom,color-mix(in oklch,var(--on-ink) 7%,transparent) 1px,transparent 1px);background-size:calc(100%/12) 120px;mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 70%,transparent)}
+.hero-island{position:absolute;right:-8vw;bottom:-14%;width:min(980px,78vw);color:var(--heather);opacity:.34}
+.hero-island use{fill:none;stroke:currentColor;stroke-width:1.1;vector-effect:non-scaling-stroke}
+.hero-glow{position:absolute;inset:auto -10% -40% 30%;height:90%;background:radial-gradient(closest-side,color-mix(in oklch,var(--plum) 55%,transparent),transparent);opacity:.55;filter:blur(20px)}
+.hero .wrap{display:grid;grid-template-columns:repeat(12,1fr);gap:0 2rem;padding-block:clamp(4rem,9vw,8.5rem) clamp(3rem,6vw,5rem);min-height:min(88dvh,940px);align-content:space-between}
+.hero-copy{grid-column:1 / span 7;align-self:center}
+.eyebrow{display:flex;align-items:center;gap:.75rem;color:var(--heather);margin-bottom:2rem}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,6.4vw,6.9rem);line-height:.98;letter-spacing:-.035em;font-variation-settings:"opsz" 60}
+.hero h1 em{font-style:italic;color:var(--heather)}
+.hero h1 .line{display:block}
+.hero-sub{margin-top:2rem;max-width:46ch;font-size:clamp(1.05rem,1.3vw,1.2rem);line-height:1.6;color:var(--on-ink-muted)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.5rem}
+
+.console{grid-column:9 / span 4;align-self:center;position:relative}
+.console-card{background:color-mix(in oklch,var(--ink-2) 92%,transparent);border:1px solid var(--ink-line);border-radius:10px;padding:1.5rem;box-shadow:inset 0 1px 0 color-mix(in oklch,var(--on-ink) 8%,transparent)}
+.console-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.25rem 1rem;margin-bottom:1rem}
+.console-head h2{white-space:nowrap}
+.console-head h2{font-family:var(--serif);font-size:1.6rem;line-height:1.1;letter-spacing:-.01em;font-variation-settings:"opsz" 36}
+.console-head .mono{color:var(--on-ink-muted)}
+.console label{display:block;font-size:.9rem;color:var(--on-ink-muted);margin-bottom:.5rem}
+.field{position:relative}
+.field input{width:100%;min-height:56px;padding:.9rem 3rem .9rem 2.9rem;border-radius:6px;border:1px solid var(--ink-line);background:var(--ink);color:var(--on-ink);font:inherit;font-size:1.05rem;transition:border-color 200ms ease,background-color 200ms ease}
+.field input::placeholder{color:color-mix(in oklch,var(--on-ink-muted) 75%,transparent)}
+.field input:focus{outline:none;border-color:var(--heather);background:oklch(0.20 0.05 338)}
+.field input:focus-visible{outline:2px solid var(--heather);outline-offset:2px}
+.field .ico{position:absolute;left:1rem;top:50%;width:18px;height:18px;transform:translateY(-50%);color:var(--on-ink-muted);pointer-events:none}
+.field kbd{position:absolute;right:.75rem;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:.75rem;min-width:24px;height:24px;display:grid;place-items:center;border:1px solid var(--ink-line);border-radius:4px;color:var(--on-ink-muted);background:var(--ink-2)}
+.field .clear{position:absolute;right:.4rem;top:50%;transform:translateY(-50%);width:44px;height:44px;display:none;place-items:center;border:0;background:none;color:var(--on-ink-muted);cursor:pointer;border-radius:4px}
+.field.has-value .clear{display:grid}
+.field.has-value kbd{display:none}
+.console-card.answering .examples{display:none}
+.examples{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem;align-items:center}
+.examples span{font-size:.85rem;color:var(--on-ink-muted);margin-right:.25rem}
+.chip{font-family:var(--mono);font-size:.78rem;min-height:36px;padding:.4rem .7rem;border-radius:4px;border:1px solid var(--ink-line);background:transparent;color:var(--on-ink);cursor:pointer;transition:border-color 180ms ease,background-color 180ms ease,transform 160ms var(--ease-out)}
+.chip:active{transform:scale(0.97)}
+@media (hover:hover){.chip:hover{border-color:var(--heather);background:var(--ink-3)}}
+.answer{margin-top:1rem;display:grid;grid-template-rows:0fr;transition:grid-template-rows 320ms var(--ease-out)}
+.answer.show{grid-template-rows:1fr}
+.answer>div{overflow:hidden}
+.answer-inner{border-top:1px solid var(--ink-line);padding-top:.75rem}
+.res{display:grid;grid-template-columns:auto 1fr auto;gap:.15rem .9rem;align-items:start;padding:.8rem .6rem;margin-inline:-.6rem;border-radius:6px;text-decoration:none;opacity:0;transform:translateY(6px);animation:resIn 260ms var(--ease-out) forwards;animation-delay:calc(var(--i) * 45ms)}
+@keyframes resIn{to{opacity:1;transform:none}}
+.res:focus-visible,.res.active{background:var(--ink-3);outline:none}
+@media (hover:hover){.res:hover{background:var(--ink-3)}}
+.res .st{display:inline-flex;align-items:center;gap:.35rem;font-size:.78rem;font-weight:600;color:var(--ok-on-ink);padding-top:.2rem;white-space:nowrap}
+.res .st svg{width:14px;height:14px}
+.res .nm{font-weight:500;line-height:1.35}
+.res mark{background:none;color:var(--heather);text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:1px}
+.res .meta{grid-column:2;font-size:.85rem;color:var(--on-ink-muted)}
+.res .meta .mono{font-size:.76rem;color:var(--on-ink)}
+.res .go{grid-row:1 / span 2;grid-column:3;align-self:center;width:16px;height:16px;color:var(--on-ink-muted)}
+.verdict{padding:.4rem 0 .2rem}
+.verdict-title{display:flex;align-items:center;gap:.5rem;font-weight:600;color:var(--no-on-ink)}
+.verdict-title svg{width:18px;height:18px}
+.verdict p{font-size:.92rem;color:var(--on-ink-muted);margin-top:.5rem}
+.verdict ul{margin-top:.6rem;display:grid;gap:.35rem;font-size:.92rem}
+.verdict li{display:flex;gap:.5rem}
+.verdict li::before{content:"";flex:none;width:5px;height:5px;margin-top:.62em;border-radius:50%;background:var(--heather)}
+.answer-foot a{white-space:nowrap}
+.answer-foot{display:flex;justify-content:space-between;gap:1rem;margin-top:.5rem;padding-top:.75rem;border-top:1px solid var(--ink-line);font-size:.85rem;color:var(--on-ink-muted)}
+.console-routes{display:flex;gap:1.25rem;flex-wrap:wrap;margin-top:1.1rem;font-size:.95rem}
+.console-routes a{color:var(--on-ink)}
+.hero-foot{grid-column:1 / -1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.75rem 2rem;padding-top:1.25rem;margin-top:clamp(3rem,6vw,5rem);border-top:1px solid var(--ink-line);color:var(--on-ink-muted)}
+.hero-foot span{display:inline-flex;gap:.6rem;align-items:center}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--ok-on-ink);box-shadow:0 0 0 0 color-mix(in oklch,var(--ok-on-ink) 60%,transparent);animation:pulse 2.6s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in oklch,var(--ok-on-ink) 55%,transparent)}70%,100%{box-shadow:0 0 0 7px transparent}}
+
+/* ---------- sections shared ---------- */
+.chapter{padding-block:clamp(5rem,10vw,9.5rem)}
+.kicker{display:flex;align-items:center;gap:.75rem;color:var(--plum);font-weight:500;font-size:.95rem;margin-bottom:1.25rem}
+.kicker::before{content:"";width:28px;height:1px;background:currentColor}
+.ink .kicker{color:var(--heather)}
+.h2{font-family:var(--serif);font-size:clamp(2.25rem,4.4vw,4.25rem);line-height:1.02;letter-spacing:-.03em;font-variation-settings:"opsz" 60}
+.h2 em{font-style:italic;color:var(--plum)}
+.ink .h2 em{color:var(--heather)}
+.lede{font-size:clamp(1.05rem,1.25vw,1.2rem);color:var(--muted);max-width:52ch;margin-top:1.25rem}
+.ink .lede{color:var(--on-ink-muted)}
+
+/* ---------- audience index ---------- */
+.routes-head{display:grid;grid-template-columns:repeat(12,1fr);gap:2rem;align-items:end;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.routes-head .h2{grid-column:1 / span 7}
+.routes-head .lede{grid-column:9 / span 4;margin:0}
+.route{position:relative;display:grid;grid-template-columns:repeat(12,1fr);gap:1rem 2rem;padding:clamp(1.75rem,3vw,2.5rem) 0;border-top:1px solid var(--rule);isolation:isolate}
+.routes li:last-child .route{border-bottom:1px solid var(--rule)}
+.route::before{content:"";position:absolute;inset:0 calc(50% - 50vw);z-index:-1;background:var(--ink);clip-path:inset(0 100% 0 0);transition:clip-path 520ms var(--ease-io)}
+.route-num{grid-column:1 / span 1;font-family:var(--mono);font-size:.8rem;color:var(--muted);padding-top:.9rem;transition:color 300ms ease}
+.route-title{grid-column:2 / span 5}
+.route-title h3{font-family:var(--serif);font-size:clamp(1.9rem,3.4vw,3.25rem);line-height:1.02;letter-spacing:-.025em;font-variation-settings:"opsz" 60;transition:color 300ms ease}
+.route-title p{margin-top:.6rem;color:var(--muted);max-width:38ch;font-size:.98rem;transition:color 300ms ease}
+.route-tasks{grid-column:7 / span 6;display:grid;grid-template-columns:repeat(2,1fr);gap:0 2rem;align-content:start;padding-top:.4rem}
+.route-tasks a{display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:48px;padding:.6rem 0;border-bottom:1px solid var(--rule);text-decoration:none;font-weight:500;transition:color 300ms ease,border-color 300ms ease}
+.route-tasks a svg{width:16px;height:16px;flex:none;opacity:.55;transition:transform 220ms var(--ease-out),opacity 220ms ease}
+@media (hover:hover) and (pointer:fine){
+  .route:hover::before,.route:focus-within::before{clip-path:inset(0 0 0 0)}
+  .route:hover .route-title h3,.route:focus-within .route-title h3,
+  .route:hover .route-tasks a,.route:focus-within .route-tasks a{color:var(--on-ink)}
+  .route:hover .route-title p,.route:focus-within .route-title p,
+  .route:hover .route-num,.route:focus-within .route-num{color:var(--on-ink-muted)}
+  .route:hover .route-tasks a,.route:focus-within .route-tasks a{border-color:var(--ink-line)}
+  .route-tasks a:hover{color:var(--heather)!important}
+  .route-tasks a:hover svg{transform:translateX(4px);opacity:1}
+  .route:focus-within .route-tasks a:focus-visible{outline-color:var(--heather)}
+}
+
+/* ---------- register (signature) ---------- */
+.register{position:relative;overflow:hidden}
+.register .wrap{position:relative}
+.reg-head{display:grid;grid-template-columns:repeat(12,1fr);gap:2rem;align-items:end}
+.reg-head .h2{grid-column:1 / span 6}
+.reg-head .lede{grid-column:1 / span 6}
+.reg-facts{grid-column:8 / span 5;align-self:end;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink-line)}
+.reg-facts div{padding:1rem 0 0}
+.reg-facts dt{font-size:.85rem;color:var(--on-ink-muted)}
+.reg-facts dd{margin:.35rem 0 0;font-family:var(--serif);font-size:clamp(2rem,3vw,2.75rem);line-height:1;font-variant-numeric:tabular-nums lining-nums;font-variation-settings:"opsz" 48}
+.reg-tools{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:clamp(2.5rem,5vw,4rem);padding-bottom:1rem}
+.seg{display:inline-flex;border:1px solid var(--ink-line);border-radius:6px;padding:3px;gap:2px;flex-wrap:wrap}
+.seg button{min-height:40px;padding:.4rem .9rem;border:0;border-radius:4px;background:none;color:var(--on-ink-muted);cursor:pointer;font-size:.92rem;font-weight:500;transition:background-color 200ms ease,color 200ms ease}
+.seg button[aria-pressed="true"]{background:var(--on-ink);color:var(--ink)}
+@media (hover:hover){.seg button[aria-pressed="false"]:hover{color:var(--on-ink);background:var(--ink-2)}}
+.reg-asof{color:var(--on-ink-muted)}
+.ledger{border-top:1px solid var(--on-ink)}
+.l-row .n,.l-row .sites{font-variant-numeric:tabular-nums}
+.l-row,.l-headrow{display:grid;grid-template-columns:3.5rem minmax(0,1fr) 13rem 7.5rem 3rem;gap:1.25rem;align-items:center}
+.l-headrow{padding:.75rem 0;border-bottom:1px solid var(--ink-line);color:var(--on-ink-muted);font-size:.82rem}
+.l-item{border-bottom:1px solid var(--ink-line)}
+.l-row{width:100%;min-height:64px;padding:.9rem 0;text-align:left;background:none;border:0;cursor:pointer;color:var(--on-ink);position:relative;transition:background-color 200ms ease}
+.l-row .n{font-family:var(--mono);font-size:.78rem;color:var(--on-ink-muted)}
+.l-row .co{font-family:var(--serif);font-size:clamp(1.15rem,1.6vw,1.45rem);line-height:1.2;letter-spacing:-.01em;font-variation-settings:"opsz" 32}
+.l-row .cat{font-size:.92rem;color:var(--on-ink-muted)}
+.l-row .cat b{display:inline-grid;place-items:center;min-width:1.6rem;height:1.6rem;padding:0 .35rem;margin-right:.5rem;border:1px solid var(--ink-line);border-radius:4px;font-family:var(--mono);font-weight:500;font-size:.75rem;color:var(--on-ink)}
+.l-row .sites{font-family:var(--mono);font-size:.82rem;text-align:right}
+.l-row .tog{justify-self:end;width:28px;height:28px;border:1px solid var(--ink-line);border-radius:4px;display:grid;place-items:center;transition:border-color 200ms ease,background-color 200ms ease}
+.l-row .tog svg{width:12px;height:12px;transition:transform 260ms var(--ease-out)}
+.l-row[aria-expanded="true"] .tog{border-color:var(--heather);background:var(--ink-3)}
+.l-row[aria-expanded="true"] .tog svg{transform:rotate(45deg)}
+@media (hover:hover){.l-row:hover{background:color-mix(in oklch,var(--ink-2) 70%,transparent)}.l-row:hover .tog{border-color:var(--heather)}}
+.l-row:focus-visible{outline-offset:-2px}
+.l-detail{display:grid;grid-template-rows:0fr;transition:grid-template-rows 360ms var(--ease-out)}
+.l-detail.open{grid-template-rows:1fr}
+.l-detail>div{overflow:hidden}
+.l-detail-inner{display:grid;grid-template-columns:3.5rem 1fr;gap:1.25rem;padding:0 0 1.5rem}
+.l-detail-inner .what{grid-column:2;color:var(--on-ink-muted);font-size:.92rem;margin-bottom:.9rem}
+.site-list{grid-column:2;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.1rem 1.5rem}
+.site-list li{font-family:var(--mono);font-size:.8rem;padding:.35rem 0;border-bottom:1px dashed color-mix(in oklch,var(--ink-line) 70%,transparent);overflow-wrap:anywhere}
+.no-sites{grid-column:2;font-size:.92rem;color:var(--on-ink-muted)}
+/* unfold */
+.ledger .l-item{clip-path:inset(0 0 0 0)}
+.js .ledger:not(.unfolded) .l-item{clip-path:inset(0 100% 0 0)}
+.js .ledger:not(.unfolded) .l-item .l-row>*{opacity:0}
+.js .ledger .l-item{transition:clip-path 700ms var(--ease-io);transition-delay:calc(var(--i) * 55ms)}
+.js .ledger .l-item .l-row>*{transition:opacity 400ms ease;transition-delay:calc(var(--i) * 55ms + 260ms)}
+.ledger.filtering .l-item{transition:none}
+.ledger .l-item[hidden]{display:none}
+.reg-other{display:grid;grid-template-columns:repeat(12,1fr);gap:2rem;margin-top:clamp(3rem,6vw,5rem)}
+.reg-other h3{grid-column:1 / span 4;font-family:var(--serif);font-size:1.6rem;line-height:1.15;font-variation-settings:"opsz" 36}
+.reg-other p{color:var(--on-ink-muted);margin-top:.5rem;font-size:.95rem;max-width:34ch}
+.reg-other ul{grid-column:6 / span 7;display:grid;grid-template-columns:repeat(2,1fr);gap:0 2rem}
+.reg-other a{display:flex;justify-content:space-between;align-items:center;min-height:52px;border-bottom:1px solid var(--ink-line);text-decoration:none;font-weight:500}
+.reg-other a svg{width:16px;height:16px;opacity:.6;transition:transform 220ms var(--ease-out)}
+@media (hover:hover){.reg-other a:hover{color:var(--heather)}.reg-other a:hover svg{transform:translateX(4px)}}
+.reg-island{position:absolute;left:-12vw;top:-6rem;width:min(700px,60vw);color:var(--heather);opacity:.08;pointer-events:none}
+.reg-island use{fill:none;stroke:currentColor;stroke-width:1;vector-effect:non-scaling-stroke}
+
+/* ---------- why alderney ---------- */
+.why .wrap{display:grid;grid-template-columns:repeat(12,1fr);gap:2rem}
+.why-intro{grid-column:1 / span 5}
+.why-photo{grid-column:7 / span 6;grid-row:1 / span 2;position:relative;margin:0 0 6rem;align-self:start}
+.why-photo .frame{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:8px;background:var(--stone-2)}
+.why-photo img{width:100%;height:100%;object-fit:cover;object-position:90% 55%;filter:saturate(.62) contrast(1.04) sepia(.08) brightness(.98);transform:scale(1.06);transition:transform 1400ms var(--ease-out)}
+.why-photo.in img{transform:scale(1)}
+.why-photo .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,color-mix(in oklch,var(--ink) 50%,transparent),transparent 30%);pointer-events:none}
+.why-photo figcaption{position:absolute;left:1.25rem;right:1.25rem;top:1.1rem;color:var(--on-ink);display:flex;justify-content:space-between;gap:1rem;font-size:.85rem}
+.why-map{position:absolute;left:-14%;bottom:-14%;width:66%;background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:1rem 1rem .75rem}
+.why-map svg{width:100%;height:auto;overflow:visible}
+.why-map .coast{fill:color-mix(in oklch,var(--stone) 60%,var(--paper));stroke:var(--text);stroke-width:1.2;vector-effect:non-scaling-stroke}
+.why-map .isles{fill:var(--stone-2);stroke:var(--text);stroke-width:.8;vector-effect:non-scaling-stroke}
+.js .why-map .coast{stroke-dasharray:1;stroke-dashoffset:1;fill-opacity:0;transition:stroke-dashoffset 2200ms var(--ease-io),fill-opacity 900ms ease 1500ms}
+.js .why-map.in .coast{stroke-dashoffset:0;fill-opacity:1}
+.why-map .pin circle{fill:var(--plum)}
+.why-map .pin .ring{fill:none;stroke:var(--plum);stroke-width:1;vector-effect:non-scaling-stroke}
+.why-map .pin text{font-family:var(--sans);font-size:36px;fill:var(--text);font-weight:500}
+.why-map .map-foot{display:flex;gap:1rem;white-space:nowrap;justify-content:space-between;margin-top:.5rem;color:var(--muted);font-size:.72rem}
+.why-points{grid-column:1 / span 5;align-self:end;counter-reset:pt}
+.why-points li{display:grid;grid-template-columns:3rem 1fr;gap:1rem;padding:1.4rem 0;border-top:1px solid var(--rule)}
+.why-points li::before{counter-increment:pt;content:"0" counter(pt);font-family:var(--mono);font-size:.8rem;color:var(--plum);padding-top:.35rem}
+.why-points h3{font-family:var(--serif);font-size:1.45rem;line-height:1.15;letter-spacing:-.01em;font-variation-settings:"opsz" 32}
+.why-points p{color:var(--muted);margin-top:.4rem;font-size:.98rem}
+.why-cta{margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap}
+
+/* ---------- licensing path ---------- */
+.path{background:var(--stone)}
+.path-head{display:grid;grid-template-columns:repeat(12,1fr);gap:2rem;align-items:end}
+.path-head .h2{grid-column:1 / span 6}
+.path-head .lede{grid-column:8 / span 5;margin:0}
+.steps{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:clamp(3rem,6vw,5rem)}
+.steps-line{position:absolute;left:0;right:0;top:11px;height:1px;background:var(--stone-2)}
+.steps-line i{position:absolute;inset:0;background:var(--text);transform-origin:left;transform:scaleX(1)}
+.js .steps-line i{transform:scaleX(0);transition:transform 1600ms var(--ease-io)}
+.js .steps.in .steps-line i{transform:scaleX(1)}
+.step{position:relative;padding-right:2rem}
+.step .node{width:23px;height:23px;border-radius:50%;background:var(--stone);border:1px solid var(--text);display:grid;place-items:center;position:relative;z-index:1}
+.step .node::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--text)}
+.step.final .node{background:var(--ink);border-color:var(--ink)}
+.step.final .node::after{background:var(--heather)}
+.step .num{display:block;font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:1.5rem}
+.step h3{font-family:var(--serif);font-size:clamp(1.4rem,1.8vw,1.75rem);line-height:1.1;letter-spacing:-.015em;margin-top:.5rem;font-variation-settings:"opsz" 36}
+.step p{color:var(--muted);margin-top:.7rem;font-size:.95rem;max-width:30ch}
+.step a.link{display:inline-block;margin-top:1rem;font-weight:500;font-size:.95rem}
+.js .step{opacity:0;transform:translateY(10px);transition:opacity 600ms ease,transform 700ms var(--ease-out);transition-delay:calc(var(--i) * 160ms + 200ms)}
+.js .steps.in .step{opacity:1;transform:none}
+.path-foot{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin-top:clamp(3rem,5vw,4.5rem);padding-top:1.5rem;border-top:1px solid var(--stone-2)}
+.path-foot p{margin-right:auto;color:var(--muted);max-width:60ch;font-size:.95rem}
+
+/* ---------- news ---------- */
+.news-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:2rem}
+.news-head{grid-column:1 / span 4;align-self:start;position:sticky;top:120px}
+.news-head .h2{font-size:clamp(2.25rem,3.6vw,3.5rem)}
+.news-head .btn{margin-top:2rem}
+.news-list{grid-column:6 / span 7}
+.news-item a{display:grid;grid-template-columns:7.5rem 1fr 1.25rem;gap:1.5rem;padding:1.6rem 0;border-top:1px solid var(--rule);text-decoration:none;align-items:baseline}
+.news-list li:last-child a{border-bottom:1px solid var(--rule)}
+.news-item time{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.news-item h3{font-family:var(--serif);font-size:clamp(1.3rem,1.9vw,1.7rem);line-height:1.2;letter-spacing:-.01em;font-variation-settings:"opsz" 32;transition:color 200ms ease}
+.news-item p{color:var(--muted);margin-top:.45rem;font-size:.95rem;max-width:60ch}
+.news-item .tag{display:inline-block;font-size:.8rem;color:var(--plum);font-weight:500;margin-bottom:.4rem}
+.news-item svg{width:16px;height:16px;align-self:center;opacity:.5;transition:transform 220ms var(--ease-out),opacity 200ms ease}
+.news-item.lead h3{font-size:clamp(1.7rem,2.8vw,2.5rem);line-height:1.08}
+@media (hover:hover){.news-item a:hover h3{color:var(--plum)}.news-item a:hover svg{transform:translateX(4px);opacity:1}}
+
+/* ---------- closing ---------- */
+.closing{position:relative;overflow:hidden}
+.closing .big{font-family:var(--serif);font-size:clamp(2.6rem,6.2vw,6.25rem);line-height:.98;letter-spacing:-.035em;max-width:16ch;font-variation-settings:"opsz" 60}
+.closing .big em{font-style:italic;color:var(--heather)}
+.contact-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:2rem;margin-top:clamp(3rem,6vw,5rem);padding-top:2rem;border-top:1px solid var(--ink-line)}
+.contact-grid>div{grid-column:span 3}
+.contact-grid>div.wide{grid-column:span 5}
+.contact-grid h3{font-size:.85rem;color:var(--on-ink-muted);font-weight:500;margin-bottom:.75rem}
+.contact-grid address{font-style:normal;line-height:1.6}
+.contact-grid .tel{font-family:var(--serif);font-size:1.6rem;line-height:1.2;text-decoration:none;font-variant-numeric:tabular-nums lining-nums}
+.contact-grid p{color:var(--on-ink-muted);font-size:.95rem;max-width:42ch}
+.contact-grid p+p{margin-top:.75rem}
+.contact-grid .link{color:var(--on-ink)}
+footer.base{border-top:1px solid var(--ink-line);margin-top:clamp(4rem,7vw,6rem)}
+footer.base .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem 2rem;padding-block:1.75rem;color:var(--on-ink-muted);font-size:.875rem}
+footer.base ul{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem}
+footer.base a{text-decoration:none}
+@media (hover:hover){footer.base a:hover{color:var(--on-ink)}}
+.closing-island{position:absolute;right:-6vw;top:2rem;width:min(620px,50vw);color:var(--heather);opacity:.1;pointer-events:none}
+.closing-island use{fill:none;stroke:currentColor;stroke-width:1;vector-effect:non-scaling-stroke}
+
+/* ---------- reveal ---------- */
+.js .rv{opacity:0;transform:translateY(14px);transition:opacity 700ms ease,transform 800ms var(--ease-out)}
+.js .rv.in{opacity:1;transform:none}
+.js .hero .h-in{opacity:0;transform:translateY(18px);animation:hIn 900ms var(--ease-out) forwards;animation-delay:calc(var(--d,0) * 1ms)}
+@keyframes hIn{to{opacity:1;transform:none}}
+.js .hero-island use{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 3.2s var(--ease-io) .3s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:1ms!important;animation-delay:0ms!important;transition-duration:1ms!important;transition-delay:0ms!important}
+  .js .rv,.js .step,.js .hero .h-in{transform:none!important}
+  .why-photo img{transform:none}
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:1180px){
+  nav.primary .hide-md{display:none}
+  .hero-copy{grid-column:1 / span 7}
+  .console{grid-column:8 / span 5}
+  .l-row,.l-headrow{grid-template-columns:3rem minmax(0,1fr) 11rem 6rem 2.5rem}
+}
+@media (max-width:980px){
+  nav.primary,.panel{display:none}
+  .menu-btn{display:inline-flex;align-items:center;gap:.5rem}
+  .mobile-nav{display:block;position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--rule);max-height:0;overflow:hidden;transition:max-height 380ms var(--ease-out);visibility:hidden}
+  .mobile-nav.open{max-height:calc(100dvh - 76px);overflow:auto;visibility:visible}
+  .mobile-nav .wrap{padding-block:1rem 2rem}
+  .mobile-nav h3{font-size:.85rem;color:var(--muted);font-weight:500;margin:1.25rem 0 .25rem}
+  .mobile-nav a{display:flex;justify-content:space-between;min-height:48px;align-items:center;border-bottom:1px solid var(--rule);text-decoration:none;font-weight:500}
+  .hero .wrap{min-height:auto}
+  .hero-copy,.console{grid-column:1 / -1}
+  .console{margin-top:3rem;max-width:620px}
+  .hero-island{width:120vw;right:-30vw;bottom:-6%}
+  .routes-head .h2,.routes-head .lede{grid-column:1 / -1}
+  .route-num{display:none}
+  .route-title,.route-tasks{grid-column:1 / -1}
+  .reg-head .h2,.reg-head .lede,.reg-facts{grid-column:1 / -1}
+  .reg-other h3,.reg-other ul,.reg-other>div{grid-column:1 / -1}
+  .why-intro,.why-points,.why-photo{grid-column:1 / -1;grid-row:auto}
+  .why-photo{margin-bottom:6rem}
+  .why-photo .frame{aspect-ratio:4/3}
+  .why-map{left:auto;right:1rem;bottom:-5rem;width:min(62%,360px)}
+  .path-head .h2,.path-head .lede{grid-column:1 / -1}
+  .steps{grid-template-columns:1fr;gap:2.25rem;padding-left:2.5rem}
+  .steps-line{left:11px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .js .steps-line i{transform-origin:top;transform:scaleY(0)}
+  .js .steps.in .steps-line i{transform:scaleY(1)}
+  .step{padding-right:0}
+  .step .node{position:absolute;left:-2.5rem;top:0}
+  .step .num{margin-top:0}
+  .news-head,.news-list{grid-column:1 / -1}
+  .contact-grid>div,.contact-grid>div.wide{grid-column:span 6}
+}
+@media (max-width:640px){
+  body{font-size:1rem}
+  .utility .u-left{display:none}
+  .utility ul{gap:1rem}
+  .brand-words span{display:none}
+  .hero h1{font-size:clamp(2.6rem,11.5vw,3.4rem)}
+  .hero .wrap{padding-top:3rem}
+  .hero-copy{display:contents}
+  .hero-copy>*,.console,.hero-foot{grid-column:1 / -1}
+  .eyebrow{order:1}.hero h1{order:2}.hero-sub{order:3;margin-top:1.25rem;font-size:1rem}
+  .console{order:4;margin-top:1.75rem}
+  .hero-actions{order:5;margin-top:1.75rem}
+  .hero-foot{order:6}
+  .utility li:nth-child(2){display:none}
+  .eyebrow{margin-bottom:1.5rem}
+  .console-card{padding:1.15rem}
+  .route-tasks{grid-template-columns:1fr}
+  .reg-facts{grid-template-columns:repeat(3,1fr)}
+  .l-headrow{display:none}
+  .l-row{grid-template-columns:2.25rem minmax(0,1fr) 2rem;gap:.25rem .75rem;align-items:start}
+  .l-row .n{grid-row:1 / span 2;padding-top:.3rem}
+  .l-row .co{grid-column:2}
+  .l-row .cat{grid-column:2;grid-row:2;font-size:.85rem}
+  .l-row .sites{grid-column:2;grid-row:3;text-align:left;color:var(--on-ink-muted)}
+  .l-row .tog{grid-column:3;grid-row:1}
+  .l-detail-inner{grid-template-columns:2.25rem 1fr;gap:.75rem}
+  .reg-other ul{grid-template-columns:1fr}
+  .why-map{width:78%;right:.5rem}
+  .why-map .pin text{font-size:30px}
+  .news-item a{grid-template-columns:1fr 1rem;gap:.35rem 1rem}
+  .news-item time{grid-column:1}
+  .news-item>a>div{grid-column:1}
+  .news-item svg{grid-column:2;grid-row:1 / span 2}
+  .contact-grid>div,.contact-grid>div.wide{grid-column:1 / -1}
+  footer.base .wrap{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#check">Skip to licence check</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- island geometry: traced from OpenStreetMap coastline data, simplified -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <path id="alderney" pathLength="1" d="M802.6 69.8L800.6 66.5L788.0 66.0L785.7 73.1L772.3 73.4L779.0 65.4L776.3 61.1L771.5 64.8L766.8 65.9L762.8 63.9L757.4 58.0L745.5 63.8L737.9 62.2L729.2 65.4L724.7 57.7L718.5 54.8L714.5 57.1L710.9 69.4L707.7 73.9L699.6 74.0L695.4 71.0L694.8 53.3L692.7 51.0L685.9 62.8L679.8 60.6L677.2 65.4L679.0 67.4L676.9 68.2L674.8 75.3L673.2 75.7L675.8 79.8L674.2 81.7L667.0 83.0L656.1 81.4L647.9 77.3L635.4 60.4L629.2 55.2L627.7 49.1L629.4 42.1L631.4 42.5L632.1 45.0L636.7 46.3L639.0 42.1L638.3 40.7L635.5 41.4L634.8 40.1L636.3 38.1L632.6 37.7L633.4 33.5L632.1 31.5L627.0 32.5L627.8 39.2L625.3 35.5L624.2 36.4L625.0 38.3L623.4 38.9L621.9 36.1L621.2 37.8L619.0 37.1L618.6 34.9L621.3 32.4L621.7 24.5L618.3 23.5L618.6 18.5L616.8 12.8L612.8 15.2L610.5 12.0L610.0 19.4L607.4 18.7L605.3 21.0L602.2 20.2L601.0 17.6L599.2 19.5L599.5 21.7L601.8 23.4L600.0 24.2L600.9 26.3L599.2 26.4L601.3 30.4L600.2 30.6L601.7 31.7L603.0 30.2L602.5 33.7L605.6 36.6L605.1 38.8L608.2 42.9L611.5 44.2L610.4 47.9L607.5 50.7L600.7 52.4L598.6 51.2L599.7 47.9L598.2 43.8L596.4 42.8L597.0 39.2L595.9 39.2L594.9 36.0L593.6 36.6L589.3 32.0L588.5 29.7L584.9 29.6L584.7 32.5L582.5 30.8L581.2 31.8L583.0 36.5L588.6 43.5L593.8 42.8L585.6 46.8L585.2 50.2L589.2 50.6L590.2 52.3L592.3 51.8L596.1 55.7L599.4 55.0L600.7 57.2L600.9 62.0L598.9 68.1L592.0 75.4L580.8 80.2L566.7 79.0L563.2 76.5L565.2 74.5L565.4 70.3L563.8 66.8L564.4 64.3L562.1 61.5L559.8 61.1L559.6 62.5L555.2 64.7L549.2 58.1L547.1 58.0L542.5 51.5L541.7 54.3L537.6 53.1L537.7 55.2L535.5 55.7L535.1 58.0L532.4 52.7L532.5 55.8L529.5 54.3L528.4 56.0L529.1 58.2L527.3 58.4L526.5 61.6L529.8 69.8L533.1 68.7L534.6 72.5L536.5 71.6L539.9 74.1L540.1 75.5L538.8 75.7L540.0 76.5L534.5 76.1L539.9 79.5L537.0 80.1L537.2 82.2L534.6 80.5L533.4 81.7L533.5 85.5L525.4 85.7L522.8 89.2L521.3 88.9L524.3 94.4L520.0 90.4L519.1 99.9L524.8 106.9L517.3 99.3L517.6 107.4L516.0 102.0L510.0 92.2L509.6 95.0L514.4 106.0L511.1 103.0L511.2 106.2L509.5 101.7L504.1 98.3L503.3 100.2L505.7 106.4L498.2 97.1L497.1 96.9L497.0 98.8L495.9 98.3L495.4 101.0L499.0 108.5L501.4 109.2L499.1 113.2L500.1 117.6L498.9 118.9L501.4 121.1L498.7 120.8L498.7 121.8L508.8 123.3L511.7 127.1L510.4 128.3L516.2 130.3L521.3 142.8L525.8 146.8L525.0 151.7L522.3 154.3L520.6 160.4L518.9 161.7L522.4 166.6L520.3 171.0L507.9 180.8L502.1 187.8L484.9 199.4L454.1 206.5L443.5 206.1L404.2 200.0L387.8 191.8L381.4 181.1L381.7 167.6L389.1 167.4L394.2 171.4L394.7 170.6L389.2 165.9L377.8 167.1L373.0 158.1L375.9 129.6L372.6 129.7L372.6 138.9L367.1 146.2L368.0 153.3L358.7 154.1L354.6 152.4L356.9 156.8L356.1 164.4L354.2 165.3L346.7 165.8L344.4 162.6L342.8 153.2L344.0 152.0L352.4 153.5L343.8 150.5L340.4 144.8L339.2 139.8L339.7 132.8L345.7 123.4L344.9 122.5L432.3 52.6L431.3 51.1L328.5 132.5L326.2 130.3L322.2 130.8L321.9 128.8L319.0 127.8L316.4 135.6L323.7 139.5L320.0 141.3L322.1 152.2L311.8 144.8L309.3 146.9L315.7 152.0L315.1 156.4L319.2 157.9L319.6 160.6L333.0 174.4L334.0 182.4L329.0 192.7L323.2 197.9L312.5 201.7L306.1 200.5L309.6 193.9L300.9 187.1L298.4 187.4L297.7 184.6L291.3 180.5L285.4 181.4L285.7 184.9L282.9 183.4L281.4 184.2L285.2 189.0L287.7 189.1L288.0 194.7L283.8 198.9L276.7 202.5L256.3 208.0L241.9 209.0L240.5 207.3L225.7 210.7L215.0 209.0L195.0 211.0L190.1 209.4L175.7 208.3L171.7 206.2L169.9 207.9L164.6 208.3L153.3 216.3L150.6 225.7L152.4 239.2L150.8 259.8L147.8 273.5L142.1 281.0L142.3 284.1L140.7 286.8L138.5 288.6L134.3 286.7L129.7 289.1L126.2 292.5L120.7 302.6L108.7 313.5L105.7 314.3L99.5 312.3L80.1 319.3L75.8 319.3L73.8 326.7L74.8 330.1L70.9 336.3L72.6 340.1L70.5 345.6L71.9 352.8L69.0 356.1L58.1 364.2L49.5 367.2L53.0 371.6L48.8 372.4L51.1 374.4L49.7 376.9L46.6 378.4L38.2 378.1L38.2 382.7L31.6 384.6L37.4 389.4L33.3 392.4L35.2 393.8L32.4 395.4L28.2 388.5L23.7 385.7L15.2 387.2L12.0 392.2L13.7 393.7L22.8 389.7L25.1 392.5L29.3 393.5L29.7 398.7L39.5 403.4L41.3 407.8L39.4 411.6L39.8 418.6L33.1 423.8L29.4 423.1L27.6 424.2L27.5 427.1L29.8 429.0L29.4 430.4L20.6 428.0L22.1 430.2L21.4 432.6L17.1 430.4L19.1 433.2L18.9 436.0L15.5 436.7L14.9 441.4L19.1 445.0L13.0 447.9L12.5 449.3L15.3 453.1L17.9 452.5L21.4 448.4L20.5 455.1L22.1 454.0L23.8 456.0L25.2 454.0L25.9 456.2L29.6 455.1L31.7 456.1L36.8 453.1L42.2 459.6L42.2 461.8L45.5 463.9L46.3 467.0L44.7 467.7L39.2 463.2L37.4 465.9L35.4 465.8L34.7 469.5L37.4 471.1L35.4 473.7L30.6 473.2L28.8 469.4L25.5 470.9L25.9 472.9L21.7 473.3L16.6 478.6L17.5 484.6L19.1 485.8L21.4 484.0L27.5 485.9L29.3 484.4L31.5 478.0L33.2 482.8L36.6 484.7L34.6 486.8L31.4 487.0L29.4 490.2L37.2 493.3L41.2 490.8L45.9 496.9L45.9 500.9L42.6 501.5L46.0 506.5L33.9 508.3L31.5 511.1L35.3 514.1L40.0 515.2L46.5 512.4L52.0 505.8L56.7 507.3L55.6 513.5L58.0 515.0L62.7 512.9L68.1 516.7L66.8 520.9L77.8 525.4L82.0 522.7L79.6 519.5L83.4 519.6L85.6 518.1L87.3 511.1L85.3 504.3L94.0 501.6L96.0 498.7L102.1 498.0L102.3 500.4L100.7 501.0L102.3 502.5L105.6 501.5L107.4 503.2L106.4 505.6L107.5 508.3L112.7 508.4L117.8 514.6L121.5 513.4L121.8 510.1L128.2 507.2L131.0 506.5L134.6 507.9L141.0 514.5L140.7 522.5L144.3 525.2L146.8 523.3L158.8 525.0L161.5 527.0L166.4 525.9L164.2 522.1L172.8 516.4L180.0 518.6L178.8 521.2L179.6 522.5L182.0 521.0L185.2 523.5L186.2 521.3L193.9 521.7L194.9 516.6L192.6 514.0L196.9 510.8L198.2 512.0L197.0 515.6L197.7 518.9L201.0 522.3L207.4 517.0L208.0 520.3L210.3 521.6L212.6 517.3L214.0 518.2L213.8 523.5L218.6 524.6L229.0 523.0L229.6 524.5L233.0 524.1L231.3 521.6L238.9 520.2L241.2 517.6L244.7 518.3L247.2 514.8L249.5 517.3L252.7 516.9L248.8 513.2L253.4 513.5L256.1 509.1L259.7 510.3L259.0 505.3L256.8 504.1L266.6 498.8L276.9 489.5L281.7 488.8L283.7 492.4L288.5 490.8L290.2 494.3L297.9 490.2L296.7 487.6L298.1 486.0L300.0 486.6L305.0 482.1L306.0 472.0L308.4 468.5L313.4 468.9L313.8 473.4L317.3 472.9L317.9 471.4L315.8 468.3L318.6 466.6L319.2 463.1L322.1 462.0L324.2 463.6L328.1 460.0L329.4 461.9L331.5 459.9L329.8 456.2L334.3 455.5L334.6 453.9L346.8 451.3L348.9 454.1L347.2 454.8L347.6 456.1L350.3 456.5L355.0 447.0L354.0 444.6L362.4 444.2L371.5 449.0L373.1 447.6L372.3 444.4L374.0 442.3L378.9 442.9L386.6 452.9L392.4 454.7L395.1 452.5L393.9 450.6L397.0 447.9L398.9 451.2L400.7 451.3L400.7 447.4L408.5 445.9L410.6 448.2L418.7 446.9L430.1 439.0L433.1 441.9L434.9 441.2L434.3 436.8L438.4 432.9L448.4 437.2L455.7 436.8L460.9 431.2L464.4 431.6L473.4 415.5L479.8 408.8L484.3 406.1L486.5 408.4L489.8 405.6L495.4 406.6L506.5 398.8L496.7 382.3L496.5 376.2L498.8 372.5L505.0 370.5L507.4 372.0L513.1 372.0L514.5 374.3L519.4 376.4L522.7 374.5L522.8 372.6L518.2 369.2L517.6 370.4L513.2 365.6L523.7 369.3L525.1 366.7L531.4 362.9L536.0 362.7L543.0 357.0L541.2 354.7L549.5 346.2L559.0 342.0L564.4 343.3L565.3 342.0L566.5 342.8L565.2 344.5L567.3 345.0L573.2 339.9L571.6 338.5L574.9 336.2L574.3 332.5L571.8 333.5L573.3 323.3L571.7 323.3L570.2 316.4L571.7 312.1L569.9 306.2L580.2 304.0L581.1 308.6L585.8 310.6L591.4 310.3L596.8 302.8L596.9 311.5L603.2 316.9L605.2 314.5L609.6 313.2L610.7 317.6L618.1 319.2L619.1 318.8L617.0 314.8L621.4 317.8L634.8 306.6L634.8 302.5L637.1 297.2L634.8 294.2L635.0 289.9L648.8 276.7L653.2 275.3L656.6 277.7L660.2 276.3L660.7 254.2L655.8 251.1L650.1 235.9L642.0 233.7L631.6 222.5L630.1 217.4L630.6 211.8L636.6 197.4L649.7 188.5L660.2 184.3L670.6 182.7L679.2 182.6L694.4 185.3L708.3 190.7L716.3 189.7L732.3 192.5L733.8 191.6L741.0 179.6L752.9 166.1L757.1 157.8L764.9 149.5L766.4 145.9L768.8 144.1L773.0 145.5L773.2 149.2L779.6 149.3L779.6 140.0L784.4 135.1L788.8 120.5L797.1 118.5L799.2 116.5L803.6 99.8L805.2 98.3L805.1 93.8L800.4 82.6L802.2 79.1Z"/>
+    <path id="isles" d="M562.8 42.0L563.7 41.4L562.8 40.3L563.7 39.9L564.2 38.1L562.0 36.5L563.1 35.9L560.2 31.3L557.1 33.1L558.4 31.5L557.6 28.8L556.7 30.1L554.6 28.2L554.2 26.8L553.4 28.0L554.1 29.8L553.2 30.9L551.4 31.0L550.8 30.1L547.8 29.3L546.7 27.8L545.6 29.4L546.5 30.3L546.0 31.8L544.7 30.0L544.1 30.4L544.3 32.2L547.9 34.6L547.8 36.0L545.1 34.9L544.1 35.9L547.1 39.6L548.9 39.1L548.6 37.4L549.2 36.9L551.8 39.5L554.2 39.1L554.3 40.1L556.8 42.1L559.9 42.8L562.5 42.7ZM729.6 47.2L730.2 35.0L727.5 35.0L725.7 38.6L723.0 36.8L720.8 40.7L722.2 44.5L726.4 48.4ZM764.6 51.4L772.2 46.0L772.4 43.1L774.6 44.9L780.6 37.6L781.4 32.8L779.7 30.0L777.8 29.5L773.3 36.1L770.6 38.7L755.2 40.0L753.4 45.0L755.4 49.3L760.5 48.6ZM833.4 108.5L832.1 112.4L829.3 111.0L828.5 111.5L827.5 110.3L826.9 110.9L827.1 114.9L825.8 114.5L825.6 115.4L827.0 117.2L825.9 118.1L824.1 116.8L823.1 118.0L820.7 118.4L819.9 119.2L815.9 119.6L807.7 129.6L807.0 132.5L807.8 132.5L808.1 134.0L811.4 131.8L811.8 134.3L813.1 133.9L813.5 136.0L814.1 133.0L816.2 134.1L816.9 134.1L817.3 133.0L818.7 135.7L822.0 130.1L822.3 128.0L825.0 127.4L826.1 125.8L827.5 120.8L827.3 118.8L828.3 118.7L829.6 116.8L829.4 116.0L830.7 116.2L831.0 115.3L831.7 116.6L833.4 114.1ZM712.3 257.4L718.4 250.0L719.4 251.3L717.9 254.9L719.6 255.3L726.5 247.8L726.0 245.1L724.8 244.7L720.6 246.5L723.5 240.2L723.5 237.2L722.5 234.7L719.8 233.5L716.1 234.3L711.1 238.3L710.9 241.7L709.6 243.7L708.4 249.9L705.5 257.1L708.1 255.2L710.3 258.8ZM30.7 333.6L34.2 331.3L35.3 327.9L41.2 322.2L41.3 319.8L39.7 318.2L35.0 321.2L27.7 318.6L25.0 318.6L21.1 320.5L20.1 322.6L20.7 324.9L27.3 327.2L30.0 330.2L27.2 331.9L26.6 334.1L27.7 336.1L29.3 335.9ZM142.2 542.6L144.9 543.8L148.8 542.8L154.4 532.1L147.4 529.5L141.5 536.8L140.6 539.5ZM156.5 548.3L167.2 546.9L165.9 544.9L162.8 542.9L161.9 538.3L155.5 536.1L151.6 547.7ZM275.9 597.0L282.7 596.8L281.7 590.8L286.9 585.7L275.4 584.5L270.8 580.9L269.3 587.7L265.6 585.1L262.3 588.6L257.9 590.0L261.1 594.9L266.7 595.5L270.9 592.8L270.6 597.0ZM141.0 530.6L141.6 525.9L137.0 523.6L134.8 524.4L134.2 527.2L136.5 530.2ZM628.7 320.7L630.2 317.9L630.3 315.6L628.6 314.8L627.0 316.8L626.0 321.1L626.3 322.9ZM475.2 454.8L475.0 453.5L477.1 448.5L476.6 444.6L474.7 443.6L472.9 444.5L471.8 446.8L470.4 447.5L469.5 450.2L470.6 450.5L471.2 454.2L472.2 455.0L473.4 454.4L474.4 455.3ZM250.9 584.7L259.4 586.2L261.7 583.1L260.5 578.5L253.2 577.1L249.0 582.5ZM661.8 295.5L664.2 295.3L666.9 288.6L665.2 287.6L668.1 283.7L668.3 278.8L665.0 283.5ZM644.6 34.8L642.0 37.2L640.7 40.7L643.6 41.7L645.6 39.7L644.5 37.9L645.8 35.8Z"/>
+    <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 12 12"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="m4.8 8.2 2.2 2.2 4.2-4.6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8h6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 18 18"><circle cx="7.5" cy="7.5" r="5.75" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m12 12 4.5 4.5" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 16 16"><path d="m3.5 3.5 9 9m0-9-9 9" stroke="currentColor" stroke-width="1.6"/></symbol>
+  </defs>
+</svg>
+
+<div class="utility">
+  <div class="wrap">
+    <div class="u-left mono"><span>St Anne, Alderney</span><span>49°43′ N 2°12′ W</span></div>
+    <ul>
+      <li><a href="tel:+441481825500">+44 (0)1481 825500</a></li>
+      <li><a href="mailto:info@agcc.gg">info@agcc.gg</a></li>
+      <li><a href="https://www.gamblingcontrol.org/player-complaints/submit-a-complaint">Make a complaint</a></li>
+    </ul>
+  </div>
+</div>
+
+<header class="site" id="top">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Alderney Gambling Control Commission, home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 840 540"><use href="#alderney" fill="var(--on-ink)"/></svg>
+      </span>
+      <span class="brand-words"><b>AGCC</b><span>Alderney Gambling Control Commission</span></span>
+    </a>
+    <nav class="primary" aria-label="Main">
+      <ul>
+        <li><button class="top" aria-expanded="false" aria-controls="p-operators" data-panel>Operators <svg aria-hidden="true"><use href="#i-chev"/></svg></button></li>
+        <li><button class="top" aria-expanded="false" aria-controls="p-players" data-panel>Players <svg aria-hidden="true"><use href="#i-chev"/></svg></button></li>
+        <li><a class="top" href="#register">Licence register</a></li>
+        <li class="hide-md"><a class="top" href="https://www.gamblingcontrol.org/regulation-framework/legislation">Legislation</a></li>
+        <li class="hide-md"><a class="top" href="#news">News</a></li>
+        <li><button class="top" aria-expanded="false" aria-controls="p-about" data-panel>About <svg aria-hidden="true"><use href="#i-chev"/></svg></button></li>
+        <li class="nav-cta"><a class="btn btn-ink" href="#check">Check a licence</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" aria-expanded="false" aria-controls="mnav">Menu</button>
+  </div>
+
+  <div class="panel" id="p-operators" role="region" aria-label="Operators">
+    <div class="wrap">
+      <div class="panel-lede"><h3>For operators</h3><p>Licence types, how to apply, what it costs and what we expect once you are licensed.</p></div>
+      <div class="panel-links">
+        <a href="https://www.gamblingcontrol.org/regulation-framework/an-egambling-licence"><span>eGambling licence<small>Category 1 and Category 2</small></span></a>
+        <a href="https://www.gamblingcontrol.org/regulation-framework/copy-of-hosting-certificate"><span>Temporary eGambling licence<small>Time-limited operation</small></span></a>
+        <a href="https://www.gamblingcontrol.org/regulation-framework/a-core-service-provider-associate-certificate"><span>Core service provider<small>Associate certificate</small></span></a>
+        <a href="https://www.gamblingcontrol.org/regulation-framework/associate-certificate"><span>Associate certificate<small>Category 1 and 2</small></span></a>
+        <a href="https://www.gamblingcontrol.org/regulation-framework/a-hosting-certificate"><span>Hosting certificate<small>Data centres and hosting</small></span></a>
+        <a href="https://www.gamblingcontrol.org/regulation-framework/a-key-individual-certificate"><span>Key individual certificate<small>People in key roles</small></span></a>
+        <a href="https://www.gamblingcontrol.org/applications-guidance"><span>How to apply<small>What to send the Commission</small></span></a>
+        <a href="https://www.gamblingcontrol.org/applications-guidance/forms"><span>Forms<small>Applications and returns</small></span></a>
+        <a href="https://www.gamblingcontrol.org/regulation-framework/fees"><span>Fees<small>Deposits and annual fees</small></span></a>
+      </div>
+    </div>
+  </div>
+  <div class="panel" id="p-players" role="region" aria-label="Players">
+    <div class="wrap">
+      <div class="panel-lede"><h3>For players</h3><p>Check who you are playing with, set limits, and tell us when something goes wrong.</p></div>
+      <div class="panel-links">
+        <a href="#check"><span>Check a licence<small>Search companies and websites</small></span></a>
+        <a href="https://www.gamblingcontrol.org/player-complaints/submit-a-complaint"><span>Make a complaint<small>Online form, email or post</small></span></a>
+        <a href="https://www.gamblingcontrol.org/limitation-on-play"><span>Set a limit on your play<small>Limitation on play</small></span></a>
+        <a href="https://www.gamblingcontrol.org/player-complaints"><span>How complaints work<small>What happens next</small></span></a>
+        <a href="https://www.gamblingcontrol.org/faqs"><span>Questions and answers<small>FAQs</small></span></a>
+        <a href="https://www.gamblingcontrol.org/players"><span>Player information<small>Your protections</small></span></a>
+      </div>
+    </div>
+  </div>
+  <div class="panel" id="p-about" role="region" aria-label="About">
+    <div class="wrap">
+      <div class="panel-lede"><h3>About the Commission</h3><p>Who we are, how we regulate, and what we publish.</p></div>
+      <div class="panel-links">
+        <a href="https://www.gamblingcontrol.org/about-us"><span>Mission and objectives</span></a>
+        <a href="https://www.gamblingcontrol.org/general-8"><span>Our approach</span></a>
+        <a href="https://www.gamblingcontrol.org/team"><span>Organisation</span></a>
+        <a href="https://www.gamblingcontrol.org/reports"><span>Reports</span></a>
+        <a href="https://www.gamblingcontrol.org/news"><span>News</span></a>
+        <a href="https://www.gamblingcontrol.org/applications-guidance/current-applicants"><span>Notices</span></a>
+        <a href="https://www.gamblingcontrol.org/jobs"><span>Careers</span></a>
+        <a href="https://www.gamblingcontrol.org/service-providers"><span>Service providers</span></a>
+        <a href="https://www.gamblingcontrol.org/contact"><span>Contact</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mnav">
+    <div class="wrap">
+      <h3>Players</h3>
+      <a href="#check">Check a licence <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="https://www.gamblingcontrol.org/player-complaints/submit-a-complaint">Make a complaint <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="https://www.gamblingcontrol.org/limitation-on-play">Set a limit on your play <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <h3>Operators</h3>
+      <a href="https://www.gamblingcontrol.org/regulation-framework">Licence types <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="https://www.gamblingcontrol.org/applications-guidance">How to apply <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="https://www.gamblingcontrol.org/regulation-framework/fees">Fees <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <h3>The Commission</h3>
+      <a href="#register">Licence register <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="https://www.gamblingcontrol.org/regulation-framework/legislation">Legislation <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="#news">News <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="https://www.gamblingcontrol.org/about-us">About us <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="https://www.gamblingcontrol.org/contact">Contact <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- 1. HERO -->
+<section class="hero ink" aria-labelledby="hero-title">
+  <div class="hero-chart" aria-hidden="true">
+    <div class="grat"></div>
+    <div class="hero-glow"></div>
+    <svg class="hero-island" viewBox="0 0 840 540"><use href="#alderney"/></svg>
+  </div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow mono h-in" style="--d:0">The regulator of online gambling licensed in Alderney</p>
+      <h1 id="hero-title">
+        <span class="line h-in" style="--d:120">Licensed in Alderney.</span>
+        <span class="line h-in" style="--d:260"><em>Answerable</em> to us.</span>
+      </h1>
+      <p class="hero-sub h-in" style="--d:420">We license and supervise online gambling from a small island in the Channel Islands, to one standard: honest and fair, free from criminal influence, and safe for the young and the vulnerable.</p>
+      <div class="hero-actions h-in" style="--d:540">
+        <a class="btn btn-paper" href="https://www.gamblingcontrol.org/applications-guidance">Apply for a licence <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost-ink" href="https://www.gamblingcontrol.org/player-complaints/submit-a-complaint">Make a complaint</a>
+      </div>
+    </div>
+
+    <div class="console h-in" style="--d:380" id="check">
+      <div class="console-card">
+        <div class="console-head">
+          <h2>Check a licence</h2>
+          <span class="mono" id="console-count">20 licensees</span>
+        </div>
+        <form role="search" id="check-form" autocomplete="off" onsubmit="return false">
+          <label for="q">Company name or website address</label>
+          <div class="field">
+            <svg class="ico" aria-hidden="true"><use href="#i-search"/></svg>
+            <input id="q" type="search" inputmode="search" spellcheck="false" placeholder="e.g. jackpotcity.com" aria-describedby="q-hint" aria-controls="answer">
+            <kbd aria-hidden="true">/</kbd>
+            <button type="button" class="clear" aria-label="Clear search"><svg width="16" height="16" aria-hidden="true"><use href="#i-x"/></svg></button>
+          </div>
+          <p id="q-hint" class="sr-only">Results appear as you type. Use the arrow keys to move through them.</p>
+        </form>
+        <div class="examples" id="examples">
+          <span>Try</span>
+          <button type="button" class="chip" data-q="Betway">Betway</button>
+          <button type="button" class="chip" data-q="jackpotcity.com">jackpotcity.com</button>
+          <button type="button" class="chip" data-q="https://www.matchbook.com/sports">matchbook.com</button>
+        </div>
+        <div class="answer" id="answer">
+          <div><div class="answer-inner" id="answer-inner"></div></div>
+        </div>
+        <p class="sr-only" aria-live="polite" id="live"></p>
+      </div>
+      <div class="console-routes">
+        <a class="link" href="#register">Browse the full register</a>
+        <a class="link" href="https://www.gamblingcontrol.org/regulation-framework/recently-licensed">Recently licensed</a>
+      </div>
+    </div>
+
+    <div class="hero-foot mono h-in" style="--d:700">
+      <span><i class="dot" aria-hidden="true"></i>Register as at 16 October 2026</span>
+      <span>St Anne’s House, Alderney GY9 3TB</span>
+      <span>49°43′ N 2°12′ W</span>
+    </div>
+  </div>
+</section>
+
+<!-- 2. AUDIENCE ROUTES -->
+<section class="chapter routes-sec" aria-labelledby="routes-title">
+  <div class="wrap">
+    <div class="routes-head rv">
+      <h2 class="h2" id="routes-title">One Commission. <em>Four</em> ways in.</h2>
+      <p class="lede">Start from who you are. Every route below goes straight to the page that does the job.</p>
+    </div>
+    <ul class="routes">
+      <li class="rv"><div class="route">
+        <span class="route-num">01</span>
+        <div class="route-title"><h3>For operators</h3><p>Weighing Alderney, applying, or already licensed.</p></div>
+        <div class="route-tasks">
+          <a href="https://www.gamblingcontrol.org/applications-guidance">Apply for a licence <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="https://www.gamblingcontrol.org/regulation-framework">Licence types <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="https://www.gamblingcontrol.org/regulation-framework/fees">Fees <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="https://www.gamblingcontrol.org/applications-guidance/ics-guidelines">Forms and ICS guidelines <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div></li>
+      <li class="rv"><div class="route">
+        <span class="route-num">02</span>
+        <div class="route-title"><h3>For players</h3><p>Checking a site, setting limits, or raising a problem.</p></div>
+        <div class="route-tasks">
+          <a href="#check">Check a licence <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="https://www.gamblingcontrol.org/player-complaints/submit-a-complaint">Make a complaint <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="https://www.gamblingcontrol.org/limitation-on-play">Set a limit on your play <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="https://www.gamblingcontrol.org/faqs">Questions and answers <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div></li>
+      <li class="rv"><div class="route">
+        <span class="route-num">03</span>
+        <div class="route-title"><h3>For compliance teams</h3><p>The law, the rules and the lists you check against.</p></div>
+        <div class="route-tasks">
+          <a href="https://www.gamblingcontrol.org/regulation-framework/legislation">Legislation <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="https://www.gamblingcontrol.org/regulation-framework/amlcft-resources">AML/CFT resources <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="https://www.gamblingcontrol.org/regulation-framework/un-and-eu-sanctions">UN and EU sanctions <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="https://www.gamblingcontrol.org/applications-guidance/current-applicants">Current applicants <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div></li>
+      <li class="rv"><div class="route">
+        <span class="route-num">04</span>
+        <div class="route-title"><h3>For press and government</h3><p>Announcements, reports and who leads the Commission.</p></div>
+        <div class="route-tasks">
+          <a href="#news">Latest news <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="https://www.gamblingcontrol.org/reports">Reports <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="https://www.gamblingcontrol.org/team">Organisation <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="https://www.gamblingcontrol.org/contact">Contact the Commission <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3. REGISTER (signature) -->
+<section class="chapter register ink" id="register" aria-labelledby="reg-title">
+  <svg class="reg-island" viewBox="0 0 840 540" aria-hidden="true"><use href="#alderney"/></svg>
+  <div class="wrap">
+    <div class="reg-head">
+      <div style="grid-column:1 / span 6" class="rv">
+        <p class="kicker">The public register</p>
+        <h2 class="h2" id="reg-title">Every licence, <em>in the open.</em></h2>
+        <p class="lede">The companies licensed to offer eGambling from Alderney, as published by the Commission. Open any entry to see the websites it operates.</p>
+      </div>
+      <dl class="reg-facts rv" id="reg-facts">
+        <div><dt>Licensees</dt><dd id="f-total">20</dd></div>
+        <div><dt>Websites listed</dt><dd id="f-sites">0</dd></div>
+        <div><dt>Hold Category 2</dt><dd id="f-cat2">0</dd></div>
+      </dl>
+    </div>
+
+    <div class="reg-tools">
+      <div class="seg" role="group" aria-label="Filter by licence category">
+        <button type="button" aria-pressed="true" data-f="all">All</button>
+        <button type="button" aria-pressed="false" data-f="1">Category 1</button>
+        <button type="button" aria-pressed="false" data-f="2">Category 2</button>
+        <button type="button" aria-pressed="false" data-f="12">Both</button>
+      </div>
+      <span class="mono reg-asof">eGambling licensees · as at 16 Oct 2026</span>
+    </div>
+
+    <div class="ledger" id="ledger">
+      <div class="l-headrow" aria-hidden="true"><span>No.</span><span>Company</span><span>Licence</span><span style="text-align:right">Websites</span><span></span></div>
+      <ul id="ledger-list"></ul>
+    </div>
+
+    <div class="reg-other rv">
+      <div style="grid-column:1 / span 4"><h3>Other registers</h3><p>Associates, hosting providers and temporary licences are published separately.</p></div>
+      <ul>
+        <li><a href="https://www.gamblingcontrol.org/core-service-provider-associates">Core service provider associates <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="https://www.gamblingcontrol.org/category-1-and-2-associate-certificates">Category 1 and 2 associates <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="https://www.gamblingcontrol.org/hosting-providers">Hosting providers <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="https://www.gamblingcontrol.org/temporary-egambling-licensees">Temporary eGambling licensees <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="https://www.gamblingcontrol.org/regulation-framework/recently-licensed">Recently licensed <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="https://www.gamblingcontrol.org/regulation-framework/un-and-eu-sanctions">UN and EU sanctions <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 4. WHY ALDERNEY -->
+<section class="chapter why" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="why-intro rv">
+      <p class="kicker">Why Alderney</p>
+      <h2 class="h2" id="why-title">A small island with a <em>first-tier</em> standard.</h2>
+      <p class="lede">Alderney sits in the Bailiwick of Guernsey, within sight of the coast of France. Its regulator is built to keep one promise: the integrity of every eGambling activity it licenses.</p>
+    </div>
+
+    <figure class="why-photo" id="why-photo">
+      <div class="frame">
+        <img src="https://static.wixstatic.com/media/91a21a_9af6662422bb4b6f86cd12290efab6bd~mv2.jpg/v1/fill/w_2000,h_1125,al_c,q_85/91a21a_9af6662422bb4b6f86cd12290efab6bd~mv2.jpg" width="2000" height="1125" loading="lazy" decoding="async" alt="Alderney Lighthouse above the granite shore of the island's north-east coast, looking out to sea.">
+      </div>
+      <figcaption class="mono"><span>Mannez, north-east coast</span><span>49°43′ N</span></figcaption>
+      <div class="why-map" id="why-map" aria-hidden="true">
+        <svg viewBox="0 0 840 600">
+          <use href="#isles" class="isles"/>
+          <use href="#alderney" class="coast"/>
+          <g class="pin" transform="translate(327 318)"><circle class="ring" r="22"/><circle r="8"/><text x="34" y="12">St Anne</text></g>
+          <g class="pin" transform="translate(390 180)"><circle r="7"/><text x="-20" y="46" text-anchor="end">Braye</text></g>
+          <g class="pin" transform="translate(753 148)"><circle r="7"/><text x="-16" y="46" text-anchor="end">Mannez</text></g>
+        </svg>
+        <div class="map-foot mono"><span>The Commission, St Anne</span><span>© OpenStreetMap</span></div>
+      </div>
+    </figure>
+
+    <ol class="why-points">
+      <li class="rv"><div><h3>The regulator never sells the jurisdiction</h3><p>New enquiries go to Alderney eGambling, owned by the States of Alderney and run independently. The Commission stays free to judge every applicant on suitability alone.</p></div></li>
+      <li class="rv"><div><h3>Clear law, applied the same way</h3><p>The eGambling Regulations, 2009 set out how every application is investigated, assessed and decided. Two licence categories, one standard.</p></div></li>
+      <li class="rv"><div><h3>Answerable in public</h3><p>Four Commissioners oversee the Commission and report to the States of Alderney every year. The register, notices and reports are published.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 5. HOW LICENSING WORKS -->
+<section class="chapter path" aria-labelledby="path-title">
+  <div class="wrap">
+    <div class="path-head rv">
+      <h2 class="h2" id="path-title">From first enquiry to <em>the register.</em></h2>
+      <p class="lede">The route every operator takes, step by step, as set out in the eGambling Regulations, 2009.</p>
+    </div>
+    <ol class="steps" id="steps">
+      <li class="steps-line" aria-hidden="true" role="presentation"><i></i></li>
+      <li class="step" style="--i:0"><span class="node" aria-hidden="true"></span><span class="num">Step 01</span><h3>Enquire</h3><p>Talk to Alderney eGambling first. Their guidance is free and impartial, and separate from the regulator.</p><a class="link" href="https://www.gamblingcontrol.org/alderney-egambling">About Alderney eGambling</a></li>
+      <li class="step" style="--i:1"><span class="node" aria-hidden="true"></span><span class="num">Step 02</span><h3>Apply</h3><p>Send the Commission your completed application form, its appendices and your supporting documents.</p><a class="link" href="https://www.gamblingcontrol.org/applications-guidance/forms">Application forms</a></li>
+      <li class="step" style="--i:2"><span class="node" aria-hidden="true"></span><span class="num">Step 03</span><h3>Deposit and key people</h3><p>Pay a deposit against our processing costs, with a Key Individual application for each person in a key role.</p><a class="link" href="https://www.gamblingcontrol.org/regulation-framework/fees">Fees and deposits</a></li>
+      <li class="step" style="--i:3"><span class="node" aria-hidden="true"></span><span class="num">Step 04</span><h3>Assessment</h3><p>We investigate and assess the application under the eGambling Regulations, 2009, then notify you of the outcome.</p><a class="link" href="https://www.gamblingcontrol.org/regulation-framework/legislation">The legislation</a></li>
+      <li class="step final" style="--i:4"><span class="node" aria-hidden="true"></span><span class="num">Licensed</span><h3>On the register</h3><p>Your company and its websites are published, so any player can check you in seconds.</p><a class="link" href="#register">See the register</a></li>
+    </ol>
+    <div class="path-foot">
+      <p>Applying for a Category 1 or Category 2 licence, an associate certificate or a hosting certificate? The forms and guidance are in one place.</p>
+      <a class="btn btn-ink" href="https://www.gamblingcontrol.org/applications-guidance">Start an application <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-line" href="https://www.gamblingcontrol.org/regulation-framework/fees">See fees</a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. NEWS -->
+<section class="chapter news" id="news" aria-labelledby="news-title">
+  <div class="wrap news-grid">
+    <div class="news-head rv">
+      <p class="kicker">News and notices</p>
+      <h2 class="h2" id="news-title">From the Commission.</h2>
+      <a class="btn btn-line" href="https://www.gamblingcontrol.org/news">All news <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <ol class="news-list">
+      <li class="news-item lead rv"><a href="https://www.gamblingcontrol.org/post/the-agcc-announces-the-appointment-of-mr-christopher-blythe-obe-as-commissioner"><time datetime="2026-10-05">05 Oct 2026</time><div><span class="tag">Appointment</span><h3>Christopher Blythe OBE appointed Commissioner</h3></div><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      <li class="news-item rv"><a href="https://www.gamblingcontrol.org/post/agcc-announces-leadership-transition"><time datetime="2026-09-27">27 Sep 2026</time><div><span class="tag">Leadership</span><h3>Andrew Gellatly to step down as Executive Director</h3></div><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      <li class="news-item rv"><a href="https://www.gamblingcontrol.org/post/alderney-s-gambling-regulator-signs-guernsey-s-financial-crime-lead-as-new-commissioner"><time datetime="2025-07-31">31 Jul 2025</time><div><span class="tag">Appointment</span><h3>Guernsey’s financial crime lead joins as Commissioner</h3></div><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      <li class="news-item rv"><a href="https://www.gamblingcontrol.org/news"><time datetime="2025-06-01">01 Jun 2025</time><div><span class="tag">Report</span><h3>2024 Annual Report presented to the States of Alderney</h3></div><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      <li class="news-item rv"><a href="https://www.gamblingcontrol.org/news"><time datetime="2025-03-03">03 Mar 2025</time><div><span class="tag">AML/CFT</span><h3>The Commission welcomes Guernsey’s positive MONEYVAL report</h3></div><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 7. CLOSING -->
+<section class="chapter closing ink" aria-labelledby="close-title">
+  <svg class="closing-island" viewBox="0 0 840 540" aria-hidden="true"><use href="#alderney"/></svg>
+  <div class="wrap">
+    <h2 class="big rv" id="close-title">A question about a licence? <em>Ask the regulator.</em></h2>
+    <div class="contact-grid rv">
+      <div>
+        <h3>Write to us</h3>
+        <address>St Anne’s House<br>Queen Elizabeth II Street<br>Alderney, Channel Islands<br>GY9 3TB</address>
+      </div>
+      <div>
+        <h3>Call or email</h3>
+        <a class="tel" href="tel:+441481825500">+44 (0)1481 825500</a><br>
+        <a class="link" href="mailto:info@agcc.gg">info@agcc.gg</a>
+      </div>
+      <div class="wide">
+        <h3>Making a complaint</h3>
+        <p>We cannot take complaints over the phone. Use the complaint form, email us, or send it by post, and address enquiries to the Office Administrator.</p>
+        <p><a class="link" href="https://www.gamblingcontrol.org/player-complaints/submit-a-complaint">Use the complaint form</a></p>
+      </div>
+    </div>
+  </div>
+  <footer class="base">
+    <div class="wrap">
+      <span>© 2026 Alderney Gambling Control Commission</span>
+      <ul>
+        <li><a href="https://www.gamblingcontrol.org/privacy-policy">Privacy</a></li>
+        <li><a href="https://www.gamblingcontrol.org/privacy-policy">Cookies</a></li>
+        <li><a href="https://www.gamblingcontrol.org/service-providers">Service providers</a></li>
+        <li><a href="https://www.gamblingcontrol.org/jobs">Careers</a></li>
+        <li><a href="https://www.gamblingcontrol.org/sitemap">Sitemap</a></li>
+      </ul>
+    </div>
+  </footer>
+</section>
+
+</main>
+
+<script>
+document.documentElement.classList.add('js');
+
+/* ---------- register data: eGambling licensees as published 16 Oct 2026 ---------- */
+const REGISTER = [
+  ["Bayroc (Alderney) Limited","1",[]],
+  ["Baytree (Alderney) Limited","1",["platinumplaycasino.com","royalvegascasino.com","alljackpotscasino.com","jackpotcity.com","gamingclub.com","jackpotcitycasino.com","riverbellecasino.com","spinpalacecasino.com","europalace.com","vegaspalmscasino.com","allslotscasino.com","7sultanscasino.com","mummysgold.com","spincasino.com","rubyfortune.com","spinpalace.com","luckynuggetcasino.com","kiwistreasure.com","grizzlysquest.com"]],
+  ["Betway Alderney Limited","1",[]],
+  ["Cadtree Limited","1",["royalvegas.ca","spincasino.ca","rubyfortune.ca","jackpotcity.ca"]],
+  ["Cadway Limited","1",["betway.ca"]],
+  ["Ellipse Entertainment Limited","1",["highflyercasino.com","bingoliner.com","bingocafe.com","jetbingo.com","bingocabin.com","cashcabin.com","royaljubileecasino.com","luckyliner.com"]],
+  ["Eurasia Sports Limited","12",["3et.com"]],
+  ["Exchange Platform Solutions Limited","1",["betdaq.com","mobile.betdaq.com","crossplay.fun","crossplay.win"]],
+  ["Got Next Limited","1",[]],
+  ["Greentube Alderney Limited","12",["greentube.com","admiralcasino.co.uk"]],
+  ["Hartlane Limited","1",[]],
+  ["Jumpman Gaming Limited","1",["crystalslots.ie","amazonslots.ie","rainbowspins.ie","ie.feverslots.com","zeusbingo.ie","lightscamerabingo.ie","slotsanimal.ie","aladdinslots.ie","simbaslots.ie","mirrorbingo.ie","showreelbingo.ie","spacewins.ie","bigthunderslots.ie","lootcasino.ie","aztecwins.ie","irishstarwins.ie","freespinsbingo.ie","expresswins.ie","doveslots.ie","divawins.ie","dovebingo.ie","ie.junglereel.com","ie.fluffywins.com","ie.banaspins.com","ie.bingo.games","ie.luckyadmiral.com","ca.mrwolfslots.com","ca.buffalospins.com","ca.lootcasino.com","ca.freespinsnodeposit.casino","ca.freebet.casino","ca.vikingbingo.com","ca.bigthunderslots.com","ca.doveslots.com","ca.showreelbingo.com","ca.aztecwins.com","ca.divineslots.com","thephonecasino.com","vegasmoose.com","24spin.com","dealornodealspin.com","heyspin.com"]],
+  ["Kambi Sports Solutions (Alderney) Limited","2",[]],
+  ["Marathon Alderney Limited","1",["marathonbet.dk"]],
+  ["Playtech Software (Alderney) Ltd","2",["playtech.com"]],
+  ["Stanleybet Compliance Services Limited","1",[]],
+  ["The Global Tote Limited","1",[]],
+  ["The Six Gaming Limited","1",["amazonslots.ca","feverslots.ca"]],
+  ["Totepool Alderney Limited","1",[]],
+  ["Triplebet Limited","1",["matchbook.com","easybet.net"]]
+].map(([name,cat,sites],i)=>({i,name,cat,sites:[...new Set(sites.map(s=>s.toLowerCase()))]}));
+
+const CAT_LABEL = {"1":"Category 1","2":"Category 2","12":"Category 1 and 2"};
+const CAT_SHORT = {"1":"1","2":"2","12":"1+2"};
+const CAT_PLAIN = {
+  "1":"Category 1: organises gambling and contracts with players.",
+  "2":"Category 2: runs the gambling platform that carries out transactions.",
+  "12":"Category 1 and 2: contracts with players and runs the platform."
+};
+const esc = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pad = n => String(n).padStart(2,'0');
+const icon = id => `<svg aria-hidden="true"><use href="#${id}"/></svg>`;
+
+/* ---------- facts ---------- */
+const totalSites = REGISTER.reduce((a,r)=>a+r.sites.length,0);
+document.getElementById('f-total').textContent = REGISTER.length;
+document.getElementById('f-sites').textContent = totalSites;
+document.getElementById('f-cat2').textContent = REGISTER.filter(r=>r.cat!=="1").length;
+document.getElementById('console-count').textContent = `${REGISTER.length} licensees · ${totalSites} sites`;
+
+/* ---------- ledger ---------- */
+const list = document.getElementById('ledger-list');
+list.innerHTML = REGISTER.map((r,k)=>`
+  <li class="l-item" data-cat="${r.cat}" style="--i:${k}">
+    <button class="l-row" type="button" aria-expanded="false" aria-controls="ld-${k}" id="lr-${k}">
+      <span class="n">${pad(k+1)}</span>
+      <span class="co">${esc(r.name)}</span>
+      <span class="cat"><b>${CAT_SHORT[r.cat]}</b>${CAT_LABEL[r.cat]}</span>
+      <span class="sites">${r.sites.length ? r.sites.length + (r.sites.length===1?' site':' sites') : 'None listed'}</span>
+      <span class="tog" aria-hidden="true"><svg><use href="#i-plus"/></svg></span>
+    </button>
+    <div class="l-detail" id="ld-${k}" role="region" aria-labelledby="lr-${k}">
+      <div><div class="l-detail-inner">
+        <p class="what">${CAT_PLAIN[r.cat]}</p>
+        ${r.sites.length ? `<ul class="site-list">${r.sites.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>` : `<p class="no-sites">No consumer-facing websites are listed for this licensee.</p>`}
+      </div></div>
+    </div>
+  </li>`).join('');
+
+list.addEventListener('click', e=>{
+  const btn = e.target.closest('.l-row'); if(!btn) return;
+  const open = btn.getAttribute('aria-expanded')==='true';
+  btn.setAttribute('aria-expanded', String(!open));
+  document.getElementById(btn.getAttribute('aria-controls')).classList.toggle('open', !open);
+});
+
+const ledger = document.getElementById('ledger');
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed', String(x===b)));
+  const f = b.dataset.f;
+  ledger.classList.add('filtering');
+  let n = 0;
+  list.querySelectorAll('.l-item').forEach(li=>{
+    const show = f==='all' || li.dataset.cat===f;
+    li.hidden = !show;
+    if(show){ li.style.setProperty('--i', n); li.querySelector('.n').textContent = pad(++n); }
+  });
+  // re-run the unfold for the filtered set
+  ledger.classList.remove('unfolded');
+  void ledger.offsetWidth;
+  ledger.classList.remove('filtering');
+  requestAnimationFrame(()=>ledger.classList.add('unfolded'));
+}));
+
+/* ---------- licence check ---------- */
+const q = document.getElementById('q');
+const field = q.closest('.field');
+const answer = document.getElementById('answer');
+const inner = document.getElementById('answer-inner');
+const live = document.getElementById('live');
+
+const normalise = s => s.toLowerCase().trim()
+  .replace(/^[a-z]+:\/\//,'').replace(/^www\./,'').split(/[\/?#\s]/)[0];
+const norm = s => s.toLowerCase().replace(/\(alderney\)|alderney|limited|ltd|\./g,' ').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
+
+function search(raw){
+  const text = raw.trim();
+  if(text.length < 2) return null;
+  const host = normalise(text);
+  const words = norm(text);
+  const out = [];
+  REGISTER.forEach(r=>{
+    let score = 0, site = null;
+    const n = norm(r.name);
+    if(words && n.includes(words)) score = n.startsWith(words) ? 100 : 80;
+    else if(words && words.split(' ').every(w=>n.includes(w))) score = 60;
+    if(host.length >= 3){
+      for(const s of r.sites){
+        if(s === host || host.endsWith('.'+s) || s.endsWith('.'+host)){ score = Math.max(score,120); site = s; break; }
+        if(s.includes(host)){ if(score < 70){ score = 70; site = s; } }
+      }
+    }
+    if(score) out.push({r,score,site});
+  });
+  return out.sort((a,b)=>b.score-a.score || a.r.name.localeCompare(b.r.name)).slice(0,6);
+}
+const hl = (str, term) => {
+  if(!term) return esc(str);
+  const i = str.toLowerCase().indexOf(term.toLowerCase());
+  if(i < 0) return esc(str);
+  return esc(str.slice(0,i)) + '<mark>' + esc(str.slice(i,i+term.length)) + '</mark>' + esc(str.slice(i+term.length));
+};
+
+let t;
+function render(){
+  const raw = q.value;
+  field.classList.toggle('has-value', raw.length > 0);
+  const res = search(raw);
+  q.closest('.console-card').classList.toggle('answering', res !== null);
+  if(res === null){ answer.classList.remove('show'); live.textContent=''; return; }
+  const term = raw.trim().replace(/^[a-z]+:\/\//i,'').replace(/^www\./i,'').split(/[\/?#]/)[0];
+  if(res.length){
+    inner.innerHTML = res.map((m,k)=>{
+      const sites = m.r.sites.length;
+      const meta = m.site
+        ? `Operates <span class="mono">${hl(m.site, term)}</span>`
+        : `${CAT_LABEL[m.r.cat]} · ${sites ? sites + (sites===1?' website':' websites') : 'no websites listed'}`;
+      return `<a class="res" href="#register" data-idx="${m.r.i}" style="--i:${k}">
+        <span class="st">${icon('i-check')}Licensed</span>
+        <span class="nm">${hl(m.r.name, m.site ? '' : term)}</span>
+        <svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg>
+        <span class="meta">${meta}</span>
+      </a>`;
+    }).join('') + `<div class="answer-foot"><span>AGCC register, as at 16 Oct 2026</span><a class="link" href="#register">Full register</a></div>`;
+    live.textContent = `${res.length} ${res.length===1?'match':'matches'} on the Alderney register.`;
+  } else {
+    inner.innerHTML = `<div class="verdict">
+      <p class="verdict-title">${icon('i-none')}Not on the AGCC register</p>
+      <p>We found no Alderney eGambling licensee matching <b>${esc(raw.trim())}</b>.</p>
+      <ul>
+        <li>Check the spelling, or try the company name shown in the site’s terms.</li>
+        <li>The site may be licensed by a different regulator.</li>
+        <li>If a site claims an Alderney licence and is not listed, <a class="link" href="https://www.gamblingcontrol.org/contact">tell us</a>.</li>
+      </ul>
+    </div>`;
+    live.textContent = 'Not on the Alderney register.';
+  }
+  answer.classList.add('show');
+}
+
+q.addEventListener('input', ()=>{ clearTimeout(t); t = setTimeout(render, 90); });
+document.querySelector('.field .clear').addEventListener('click', ()=>{ q.value=''; render(); q.focus(); });
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{ q.value = c.dataset.q; render(); q.focus(); }));
+
+// keyboard: arrows through results, Escape clears, "/" focuses
+q.addEventListener('keydown', e=>{
+  const items = [...inner.querySelectorAll('.res')];
+  if(e.key==='ArrowDown' && items.length){ e.preventDefault(); items[0].focus(); }
+  if(e.key==='Escape'){ q.value=''; render(); }
+  if(e.key==='Enter'){ const first = inner.querySelector('.res'); if(first){ e.preventDefault(); first.click(); } }
+});
+inner.addEventListener('keydown', e=>{
+  const items = [...inner.querySelectorAll('.res')];
+  const i = items.indexOf(document.activeElement);
+  if(i < 0) return;
+  if(e.key==='ArrowDown'){ e.preventDefault(); (items[i+1]||items[i]).focus(); }
+  if(e.key==='ArrowUp'){ e.preventDefault(); i===0 ? q.focus() : items[i-1].focus(); }
+  if(e.key==='Escape'){ q.focus(); }
+});
+document.addEventListener('keydown', e=>{
+  if(e.key==='/' && !/input|textarea/i.test(document.activeElement.tagName)){ e.preventDefault(); q.focus(); }
+});
+
+// result opens the ledger row for that licensee
+inner.addEventListener('click', e=>{
+  const a = e.target.closest('.res'); if(!a) return;
+  const idx = +a.dataset.idx;
+  document.querySelector('.seg button[data-f="all"]').click();
+  const btn = document.getElementById('lr-'+idx);
+  setTimeout(()=>{
+    if(btn.getAttribute('aria-expanded')!=='true') btn.click();
+    btn.focus({preventScroll:true});
+    btn.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto':'smooth', block:'center'});
+  }, 60);
+  e.preventDefault();
+});
+
+/* ---------- nav panels ---------- */
+const panelBtns = [...document.querySelectorAll('[data-panel]')];
+const closePanels = except => panelBtns.forEach(b=>{
+  if(b===except) return;
+  b.setAttribute('aria-expanded','false');
+  document.getElementById(b.getAttribute('aria-controls')).classList.remove('open');
+});
+panelBtns.forEach(b=>b.addEventListener('click', ()=>{
+  const open = b.getAttribute('aria-expanded')==='true';
+  closePanels(b);
+  b.setAttribute('aria-expanded', String(!open));
+  document.getElementById(b.getAttribute('aria-controls')).classList.toggle('open', !open);
+}));
+document.addEventListener('click', e=>{ if(!e.target.closest('header.site')) closePanels(); });
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){
+    const openBtn = panelBtns.find(b=>b.getAttribute('aria-expanded')==='true');
+    if(openBtn){ closePanels(); openBtn.focus(); }
+  }
+});
+document.querySelectorAll('.panel a').forEach(a=>a.addEventListener('click',()=>closePanels()));
+
+const menuBtn = document.querySelector('.menu-btn');
+const mnav = document.getElementById('mnav');
+menuBtn.addEventListener('click', ()=>{
+  const open = menuBtn.getAttribute('aria-expanded')==='true';
+  menuBtn.setAttribute('aria-expanded', String(!open));
+  menuBtn.textContent = open ? 'Menu' : 'Close';
+  mnav.classList.toggle('open', !open);
+});
+mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ menuBtn.click(); }));
+
+/* ---------- reveals ---------- */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{
+    if(!en.isIntersecting) return;
+    const el = en.target;
+    if(el.id==='ledger') el.classList.add('unfolded'); else el.classList.add('in');
+    io.unobserve(el);
+  });
+},{rootMargin:'0px 0px -12% 0px', threshold:0.08});
+document.querySelectorAll('.rv, #steps, #why-map, #why-photo, #ledger').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
