@@ -3,6 +3,7 @@ name: Alderney Gambling Control Commission
 description: A modern, transparent, firm regulator. Evolved aubergine ink on warm island granite.
 ---
 
+<!-- 2026-10-16 DIRECTION CHANGE: the user found the aubergine palette flat and boring and picked "Mix 1 and 2" from directions.html. The page is now GORSE & GRANITE with Atlantic photo moments: warm cream paper, granite charcoal (replaces aubergine as the dark field), Alderney gorse yellow as the bold accent (highlighter emphasis, drenched register chapter, ticker band, CTAs), plus a full-bleed lighthouse photo hero under a granite-to-sea overlay and the stone-cairn photo ("balance") in Why Alderney. Pills for buttons. The aubergine "Committed Ink" and "No Gold" rules below are SUPERSEDED (gorse is a flower yellow, not gold). Re-run $impeccable document in scan mode to rewrite this file from home.html. -->
 <!-- SEED — re-run $impeccable document once there's code to capture the actual tokens and components. -->
 <!-- First build exists: home.html (2026-10-16). Fonts chosen (user pick from type-specimen.html, option B 'Reading Room'): Literata (display/headings, opsz) + Commissioner (UI/body/data with tabular figures). No monospace: it read as AI/clinical. Source Serif 4 + Schibsted + Geist Mono were rejected as too cold. Tokens live as OKLCH custom properties on :root in home.html. Run $impeccable document in scan mode to promote them into this file. -->
 

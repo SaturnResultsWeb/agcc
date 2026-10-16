@@ -10,20 +10,24 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&family=Commissioner:wght@400;500;600&display=swap">
 <style>
 :root{
-  --ink:oklch(0.225 0.052 338);
-  --ink-2:oklch(0.27 0.06 338);
-  --ink-3:oklch(0.33 0.065 338);
-  --ink-line:oklch(0.40 0.05 338);
-  --on-ink:oklch(0.965 0.008 75);
-  --on-ink-muted:oklch(0.80 0.03 338);
-  --heather:oklch(0.80 0.06 340);
-  --plum:oklch(0.43 0.12 338);
-  --paper:oklch(0.972 0.007 75);
-  --stone:oklch(0.932 0.012 70);
-  --stone-2:oklch(0.90 0.014 68);
-  --text:oklch(0.235 0.02 338);
-  --muted:oklch(0.47 0.018 338);
-  --rule:oklch(0.86 0.012 70);
+  /* Gorse & Granite: warm cream paper, granite charcoal, Alderney gorse yellow */
+  --ink:oklch(0.255 0.012 60);
+  --ink-2:oklch(0.30 0.013 60);
+  --ink-3:oklch(0.35 0.014 60);
+  --ink-line:oklch(0.43 0.013 60);
+  --on-ink:oklch(0.968 0.012 85);
+  --on-ink-muted:oklch(0.80 0.016 80);
+  --gorse:oklch(0.86 0.16 92);
+  --gorse-soft:oklch(0.93 0.09 95);
+  --heather:var(--gorse);
+  --plum:oklch(0.47 0.1 68);
+  --sea:oklch(0.27 0.045 222);
+  --paper:oklch(0.968 0.012 85);
+  --stone:oklch(0.928 0.018 82);
+  --stone-2:oklch(0.895 0.02 80);
+  --text:oklch(0.245 0.012 60);
+  --muted:oklch(0.45 0.014 60);
+  --rule:oklch(0.86 0.016 80);
   --ok:oklch(0.47 0.11 155);
   --ok-on-ink:oklch(0.84 0.11 155);
   --no:oklch(0.52 0.15 30);
@@ -63,15 +67,17 @@ section[id],#check{scroll-margin-top:96px}
 .grain{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
 /* ---------- buttons & links ---------- */
-.btn{display:inline-flex;align-items:center;gap:.6rem;min-height:48px;padding:.8rem 1.25rem;border-radius:4px;font-weight:500;font-size:1rem;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background-color 200ms ease,color 200ms ease,border-color 200ms ease,transform 160ms var(--ease-out)}
+.btn{display:inline-flex;align-items:center;gap:.6rem;min-height:48px;padding:.8rem 1.4rem;border-radius:999px;font-weight:500;font-size:1rem;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background-color 200ms ease,color 200ms ease,border-color 200ms ease,transform 160ms var(--ease-out)}
 .btn:active{transform:scale(0.97)}
 .btn svg{width:18px;height:18px;transition:transform 200ms var(--ease-out)}
 .btn-paper{background:var(--on-ink);color:var(--ink)}
+.btn-gorse{background:var(--gorse);color:var(--text)}
 .btn-ghost-ink{background:transparent;border-color:var(--ink-line);color:var(--on-ink)}
 .btn-ink{background:var(--ink);color:var(--on-ink)}
 .btn-line{border-color:var(--text);color:var(--text)}
 @media (hover:hover) and (pointer:fine){
-  .btn-paper:hover{background:var(--heather)}
+  .btn-paper:hover{background:var(--gorse)}
+  .btn-gorse:hover{background:var(--on-ink)}
   .btn-ghost-ink:hover{border-color:var(--heather);color:var(--heather)}
   .btn-ink:hover{background:var(--ink-3)}
   .btn-line:hover{background:var(--text);color:var(--paper)}
@@ -119,10 +125,12 @@ nav.primary .top[aria-expanded="true"] svg{transform:rotate(180deg)}
 .ink{background:var(--ink);color:var(--on-ink)}
 .hero{position:relative;isolation:isolate;overflow:hidden}
 .hero-chart{position:absolute;inset:0;z-index:-1;pointer-events:none}
-.hero-chart .grat{position:absolute;inset:0;background-image:linear-gradient(to right,color-mix(in oklch,var(--on-ink) 7%,transparent) 1px,transparent 1px),linear-gradient(to bottom,color-mix(in oklch,var(--on-ink) 7%,transparent) 1px,transparent 1px);background-size:calc(100%/12) 120px;mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 70%,transparent)}
-.hero-island{position:absolute;right:-8vw;bottom:-14%;width:min(980px,78vw);color:var(--heather);opacity:.34}
+.hero-chart .grat{position:absolute;inset:0;z-index:0;opacity:.6;background-image:linear-gradient(to right,color-mix(in oklch,var(--on-ink) 7%,transparent) 1px,transparent 1px),linear-gradient(to bottom,color-mix(in oklch,var(--on-ink) 7%,transparent) 1px,transparent 1px);background-size:calc(100%/12) 120px;mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 70%,transparent)}
+.hero-island{position:absolute;right:-6vw;bottom:-12%;width:min(980px,78vw);color:var(--gorse);opacity:.32;z-index:0}
 .hero-island use{fill:none;stroke:currentColor;stroke-width:1.1;vector-effect:non-scaling-stroke}
-.hero-glow{position:absolute;inset:auto -10% -40% 30%;height:90%;background:radial-gradient(closest-side,color-mix(in oklch,var(--plum) 55%,transparent),transparent);opacity:.55;filter:blur(20px)}
+.hero-photo{position:absolute;inset:0;z-index:-1;background-image:linear-gradient(100deg,oklch(0.2 0.02 60 / .94) 0%,oklch(0.24 0.035 215 / .78) 42%,oklch(0.26 0.04 215 / .25) 78%,oklch(0.26 0.04 215 / .05) 100%),url(https://static.wixstatic.com/media/91a21a_9af6662422bb4b6f86cd12290efab6bd~mv2.jpg/v1/fill/w_2400,h_1350,al_c,q_85/91a21a_9af6662422bb4b6f86cd12290efab6bd~mv2.jpg);background-size:cover;background-position:72% 42%;filter:saturate(.8) contrast(1.03);transform-origin:70% 40%}
+.js .hero-photo{animation:kb 16s var(--ease-out) both}
+@keyframes kb{from{transform:scale(1.09)}to{transform:scale(1)}}
 .hero .wrap{display:grid;grid-template-columns:repeat(12,1fr);gap:0 2rem;padding-block:clamp(4rem,9vw,8.5rem) clamp(3rem,6vw,5rem);min-height:min(88dvh,940px);align-content:space-between}
 .hero-copy{grid-column:1 / span 7;align-self:center}
 .eyebrow{display:flex;align-items:center;gap:.75rem;color:var(--heather);margin-bottom:2rem}
@@ -143,7 +151,7 @@ nav.primary .top[aria-expanded="true"] svg{transform:rotate(180deg)}
 .field{position:relative}
 .field input{width:100%;min-height:56px;padding:.9rem 3rem .9rem 2.9rem;border-radius:6px;border:1px solid var(--ink-line);background:var(--ink);color:var(--on-ink);font:inherit;font-size:1.05rem;transition:border-color 200ms ease,background-color 200ms ease}
 .field input::placeholder{color:color-mix(in oklch,var(--on-ink-muted) 75%,transparent)}
-.field input:focus{outline:none;border-color:var(--heather);background:oklch(0.20 0.05 338)}
+.field input:focus{outline:none;border-color:var(--text);background:var(--paper)}
 .field input:focus-visible{outline:2px solid var(--heather);outline-offset:2px}
 .field .ico{position:absolute;left:1rem;top:50%;width:18px;height:18px;transform:translateY(-50%);color:var(--on-ink-muted);pointer-events:none}
 .field kbd{position:absolute;right:.75rem;top:50%;transform:translateY(-50%);font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:.75rem;min-width:24px;height:24px;display:grid;place-items:center;border:1px solid var(--ink-line);border-radius:4px;color:var(--on-ink-muted);background:var(--ink-2)}
@@ -289,7 +297,7 @@ nav.primary .top[aria-expanded="true"] svg{transform:rotate(180deg)}
 .why-intro{grid-column:1 / span 5}
 .why-photo{grid-column:7 / span 6;grid-row:1 / span 2;position:relative;margin:0 0 6rem;align-self:start}
 .why-photo .frame{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:8px;background:var(--stone-2)}
-.why-photo img{width:100%;height:100%;object-fit:cover;object-position:90% 55%;filter:saturate(.62) contrast(1.04) sepia(.08) brightness(.98);transform:scale(1.06);transition:transform 1400ms var(--ease-out)}
+.why-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;filter:saturate(.88) contrast(1.03);transform:scale(1.06);transition:transform 1400ms var(--ease-out)}
 .why-photo.in img{transform:scale(1)}
 .why-photo .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,color-mix(in oklch,var(--ink) 50%,transparent),transparent 30%);pointer-events:none}
 .why-photo figcaption{position:absolute;left:1.25rem;right:1.25rem;top:1.1rem;color:var(--on-ink);display:flex;justify-content:space-between;gap:1rem;font-size:.85rem}
@@ -588,13 +596,126 @@ footer.base a{text-decoration:none}
   .contact-grid{margin-top:2rem;padding-top:1.5rem;gap:1.5rem 1rem}
   .contact-grid>div{grid-column:span 6}
   .contact-grid>div.wide{grid-column:1 / -1}
-  .contact-grid .tel{font-size:1.15rem}
+  .contact-grid .tel{font-size:1.05rem;white-space:nowrap}
   .contact-grid address{font-size:.92rem}
   .closing-island{display:none}
   footer.base{margin-top:2.5rem}
   footer.base .wrap{gap:.75rem}
 }
 
+
+/* =========================================================
+   Direction layer: Gorse & Granite, with Atlantic photo moments
+   ========================================================= */
+.brand-mark::after{background:var(--gorse)}
+
+/* highlighter emphasis on light grounds */
+.h2 em{font-style:italic;color:inherit;background:linear-gradient(transparent 60%,var(--gorse) 60%,var(--gorse) 90%,transparent 90%);padding:0 .06em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.ink .h2 em{background:none;color:var(--gorse)}
+
+/* hero console: a cream card floating over the photo */
+.console{--ink:var(--stone);--ink-2:var(--paper);--ink-3:var(--stone);--ink-line:var(--rule);--on-ink:var(--text);--on-ink-muted:var(--muted);--heather:var(--plum);--ok-on-ink:var(--ok);--no-on-ink:var(--no);color:var(--text)}
+.console-card{background:var(--paper);border:0;border-radius:18px;padding:1.6rem;box-shadow:0 40px 80px -40px oklch(0.15 0.03 220 / .7),0 2px 0 oklch(1 0 0 / .4) inset}
+.field input{border-radius:12px;background:var(--stone);border-color:transparent}
+.field input:focus-visible{outline-color:var(--text)}
+.chip{border-radius:999px;background:var(--stone);border-color:transparent;color:var(--text)}
+@media (hover:hover){.chip:hover{background:var(--gorse);border-color:transparent}}
+.res{border-radius:12px}
+.res .st{color:var(--ok)}
+.console-routes a{color:var(--on-ink)}
+.console .console-routes a{color:oklch(0.968 0.012 85)}
+.hero-sub{color:oklch(0.9 0.012 85)}
+.hero .eyebrow{color:var(--gorse)}
+
+/* ticker */
+.ticker{background:var(--gorse);color:var(--text);overflow:hidden;border-block:1px solid oklch(0.25 0.012 60 / .15)}
+.ticker-in{display:flex;align-items:center}
+.ticker-label{flex:none;position:relative;z-index:1;display:flex;align-items:center;gap:.6rem;align-self:stretch;padding:0 1.5rem 0 var(--gutter);background:var(--text);color:var(--gorse);font-weight:600;font-size:.95rem;white-space:nowrap}
+.ticker-label::after{content:"";position:absolute;right:-14px;top:0;bottom:0;width:14px;background:var(--text);clip-path:polygon(0 0,100% 50%,0 100%)}
+.ticker-view{overflow:hidden;flex:1;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.ticker-track{display:flex;width:max-content;gap:2.25rem;padding:1rem 0 1rem 2.5rem;animation:tick 70s linear infinite}
+.ticker-track li{display:inline-flex;align-items:center;gap:.5rem;font-weight:500;font-size:1rem;white-space:nowrap}
+.ticker-track li svg{width:16px;height:16px;flex:none}
+@media (hover:hover){.ticker:hover .ticker-track{animation-play-state:paused}}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation:none}.ticker-view{overflow-x:auto}}
+
+/* routes: gorse wipe on hover */
+.route::before{background:var(--gorse)}
+@media (hover:hover) and (pointer:fine){
+  .route:hover .route-title h3,.route:focus-within .route-title h3,
+  .route:hover .route-tasks a,.route:focus-within .route-tasks a{color:var(--text)}
+  .route:hover .route-title p,.route:focus-within .route-title p,
+  .route:hover .route-num,.route:focus-within .route-num{color:oklch(0.34 0.04 70)}
+  .route:hover .route-tasks a,.route:focus-within .route-tasks a{border-color:oklch(0.25 0.012 60 / .25)}
+  .route-tasks a:hover{color:var(--text)!important;text-decoration:underline;text-underline-offset:.2em}
+}
+
+/* register: the gorse chapter, with a cream paper ledger */
+.gorse{background:var(--gorse);color:var(--text);
+  --on-ink:var(--text);--on-ink-muted:oklch(0.36 0.045 75);--ink-line:oklch(0.25 0.012 60 / .28);
+  --ink:var(--gorse);--ink-2:oklch(0.82 0.15 92);--ink-3:oklch(0.80 0.15 90);--heather:var(--text)}
+.gorse .kicker{color:var(--text)}
+.gorse .h2 em{background:none;color:inherit;text-decoration:underline;text-decoration-thickness:.06em;text-underline-offset:.12em}
+.gorse :focus-visible{outline-color:var(--text)}
+.reg-facts{border-top:0;gap:.75rem}
+.reg-facts div{padding:1rem 1.1rem;border:1.5px solid var(--text);border-radius:14px;background:var(--gorse-soft)}
+.seg{border:1.5px solid var(--text);border-radius:999px;padding:4px}
+.seg button{border-radius:999px}
+.seg button[aria-pressed="true"]{background:var(--text);color:var(--gorse)}
+.ledger{background:var(--paper);border:1.5px solid var(--text);border-radius:18px;padding:0 1.5rem;
+  --ink-line:var(--rule);--ink-2:var(--stone);--ink-3:var(--stone-2);--on-ink-muted:var(--muted);--heather:var(--plum)}
+.ledger .l-headrow{border-bottom-color:var(--rule)}
+.ledger .l-item:last-child{border-bottom:0}
+.ledger .l-row .n{color:var(--plum);font-weight:600}
+.l-row[aria-expanded="true"] .tog{background:var(--gorse);border-color:var(--text)}
+.ledger-more{border:1.5px solid var(--text);color:var(--text)}
+@media (hover:hover){.ledger-more:hover{background:var(--text);color:var(--gorse)}}
+.reg-other a{border-bottom-color:oklch(0.25 0.012 60 / .28)}
+@media (hover:hover){.reg-other a:hover{color:var(--text);text-decoration:underline;text-underline-offset:.2em}}
+
+/* why alderney: cairn photo on a gorse block */
+.why-photo .frame{border-radius:22px;aspect-ratio:7/8}
+.why-photo::before{content:"";position:absolute;inset:7% -5% -5% 9%;background:var(--gorse);border-radius:24px;z-index:-1}
+.why-photo{isolation:isolate}
+.why-map{border-radius:16px;box-shadow:0 24px 50px -30px oklch(0.2 0.02 60 / .55)}
+.why-points li::before{color:var(--text);background:var(--gorse);border-radius:999px;width:2rem;height:2rem;display:grid;place-items:center;padding:0;font-weight:600;font-size:.78rem}
+
+/* licensing path: the granite chapter */
+.path.ink{background:var(--ink);
+  --stone:var(--ink);--stone-2:var(--ink-line);--text:var(--on-ink);--muted:var(--on-ink-muted)}
+.path .steps-line i{background:var(--gorse)}
+.path .step .node{border-color:var(--gorse);background:var(--ink)}
+.path .step .node::after{background:var(--gorse)}
+.path .step.final .node{background:var(--gorse);border-color:var(--gorse)}
+.path .step.final .node::after{background:var(--ink)}
+.path .step .num{color:var(--gorse)}
+.path a.link{color:var(--on-ink)}
+.path .btn-line{border-color:var(--on-ink-muted);color:var(--on-ink)}
+@media (hover:hover){.path .btn-line:hover{background:var(--on-ink);color:var(--ink)}}
+.path .rail-dots i.on{background:var(--gorse)}
+
+/* news: gorse tags */
+.news-item .tag{background:var(--gorse);color:var(--text);padding:.1rem .6rem;border-radius:999px;font-size:.75rem;font-weight:600}
+.news-item.lead a{padding-block:2rem}
+
+/* closing */
+.closing .big em{color:var(--gorse)}
+.closing-island{color:var(--gorse);opacity:.12}
+
+@media (max-width:720px){
+  .console-card{padding:1.15rem;border-radius:16px}
+  .ticker-label{padding-right:1rem;font-size:.85rem}
+  .ticker-track{padding-block:.8rem;gap:1.75rem}
+  .ticker-track li{font-size:.92rem}
+  .ledger{padding:0 1rem;border-radius:14px}
+  .reg-facts{gap:.5rem}
+  .reg-facts div{padding:.75rem .8rem;border-radius:12px}
+  .path .step{background:var(--ink-2);border-color:var(--ink-line)}
+  .why-photo::before{inset:8% -3% -4% 8%}
+  .why-photo .frame{aspect-ratio:4/3}
+  .hero-photo{background-position:78% 40%;background-image:linear-gradient(180deg,oklch(0.2 0.02 60 / .82) 0%,oklch(0.24 0.035 215 / .78) 55%,oklch(0.22 0.03 215 / .92) 100%),url(https://static.wixstatic.com/media/91a21a_9af6662422bb4b6f86cd12290efab6bd~mv2.jpg/v1/fill/w_1200,h_1600,al_c,q_80/91a21a_9af6662422bb4b6f86cd12290efab6bd~mv2.jpg)}
+}
 </style>
 </head>
 <body>
@@ -721,7 +842,7 @@ footer.base a{text-decoration:none}
 <section class="hero ink" aria-labelledby="hero-title">
   <div class="hero-chart" aria-hidden="true">
     <div class="grat"></div>
-    <div class="hero-glow"></div>
+    <div class="hero-photo"></div>
     <svg class="hero-island" viewBox="0 0 840 540"><use href="#alderney"/></svg>
   </div>
   <div class="wrap">
@@ -733,7 +854,7 @@ footer.base a{text-decoration:none}
       </h1>
       <p class="hero-sub h-in" style="--d:420">We license and supervise online gambling from a small island in the Channel Islands, to one standard: honest and fair, free from criminal influence, and safe for the young and the vulnerable.</p>
       <div class="hero-actions h-in" style="--d:540">
-        <a class="btn btn-paper" href="https://www.gamblingcontrol.org/applications-guidance">Apply for a licence <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-gorse" href="https://www.gamblingcontrol.org/applications-guidance">Apply for a licence <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="btn btn-ghost-ink" href="https://www.gamblingcontrol.org/player-complaints/submit-a-complaint">Make a complaint</a>
       </div>
     </div>
@@ -776,6 +897,14 @@ footer.base a{text-decoration:none}
       <span>St Anne’s House, Alderney GY9 3TB</span>
       <span>49°43′ N 2°12′ W</span>
     </div>
+  </div>
+</section>
+
+<!-- TICKER: real licensed websites -->
+<section class="ticker" aria-labelledby="ticker-label">
+  <div class="ticker-in">
+    <p class="ticker-label" id="ticker-label">Licensed in Alderney</p>
+    <div class="ticker-view"><ul class="ticker-track" id="ticker-track"></ul></div>
   </div>
 </section>
 
@@ -832,7 +961,7 @@ footer.base a{text-decoration:none}
 </section>
 
 <!-- 3. REGISTER (signature) -->
-<section class="chapter register ink" id="register" aria-labelledby="reg-title">
+<section class="chapter register gorse" id="register" aria-labelledby="reg-title">
   <svg class="reg-island" viewBox="0 0 840 540" aria-hidden="true"><use href="#alderney"/></svg>
   <div class="wrap">
     <div class="reg-head">
@@ -843,8 +972,8 @@ footer.base a{text-decoration:none}
       </div>
       <dl class="reg-facts rv" id="reg-facts">
         <div><dt>Licensees</dt><dd id="f-total">20</dd></div>
-        <div><dt>Websites listed</dt><dd id="f-sites">0</dd></div>
-        <div><dt>Hold Category 2</dt><dd id="f-cat2">0</dd></div>
+        <div><dt>Websites</dt><dd id="f-sites">0</dd></div>
+        <div><dt>Category 2</dt><dd id="f-cat2">0</dd></div>
       </dl>
     </div>
 
@@ -883,15 +1012,15 @@ footer.base a{text-decoration:none}
   <div class="wrap">
     <div class="why-intro rv">
       <p class="kicker">Why Alderney</p>
-      <h2 class="h2" id="why-title">A small island with a <em>first-tier</em> standard.</h2>
+      <h2 class="h2" id="why-title">A small island with a <em style="white-space:nowrap">first-tier</em> standard.</h2>
       <p class="lede">Alderney sits in the Bailiwick of Guernsey, within sight of the coast of France. Its regulator is built to keep one promise: the integrity of every eGambling activity it licenses.</p>
     </div>
 
     <figure class="why-photo" id="why-photo">
       <div class="frame">
-        <img src="https://static.wixstatic.com/media/91a21a_9af6662422bb4b6f86cd12290efab6bd~mv2.jpg/v1/fill/w_2000,h_1125,al_c,q_85/91a21a_9af6662422bb4b6f86cd12290efab6bd~mv2.jpg" width="2000" height="1125" loading="lazy" decoding="async" alt="Alderney Lighthouse above the granite shore of the island's north-east coast, looking out to sea.">
+        <img src="https://static.wixstatic.com/media/91a21a_c99b6d6080e246878732370cf26698d1~mv2.jpg/v1/fill/w_1400,h_1600,al_c,q_85/91a21a_c99b6d6080e246878732370cf26698d1~mv2.jpg" width="1400" height="1600" loading="lazy" decoding="async" alt="Balanced granite stones stacked into a cairn on an Alderney beach, with the island's cliffs behind.">
       </div>
-      <figcaption class="mono"><span>Mannez, north-east coast</span><span>49°43′ N</span></figcaption>
+      <figcaption class="mono"><span>Balance, on the Alderney shore</span><span>49°43′ N</span></figcaption>
       <div class="why-map" id="why-map" aria-hidden="true">
         <svg viewBox="0 0 840 600">
           <use href="#isles" class="isles"/>
@@ -913,7 +1042,7 @@ footer.base a{text-decoration:none}
 </section>
 
 <!-- 5. HOW LICENSING WORKS -->
-<section class="chapter path" aria-labelledby="path-title">
+<section class="chapter path ink" aria-labelledby="path-title">
   <div class="wrap">
     <div class="path-head rv">
       <h2 class="h2" id="path-title">From first enquiry to <em>the register.</em></h2>
@@ -930,7 +1059,7 @@ footer.base a{text-decoration:none}
     <div class="rail-hint mono" aria-hidden="true"><span id="rail-count">01 / 05</span><span class="rail-dots"><i class="on"></i><i></i><i></i><i></i><i></i></span><span>Swipe</span></div>
     <div class="path-foot">
       <p>Applying for a Category 1 or Category 2 licence, an associate certificate or a hosting certificate? The forms and guidance are in one place.</p>
-      <a class="btn btn-ink" href="https://www.gamblingcontrol.org/applications-guidance">Start an application <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-gorse" href="https://www.gamblingcontrol.org/applications-guidance">Start an application <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <a class="btn btn-line" href="https://www.gamblingcontrol.org/regulation-framework/fees">See fees</a>
     </div>
   </div>
@@ -1282,16 +1411,43 @@ function syncLayout(){
 phone.addEventListener('change', syncLayout);
 syncLayout();
 
+/* ---------- ticker: real licensed websites, scrolling ---------- */
+(function(){
+  const track = document.getElementById('ticker-track');
+  const picks = [];
+  REGISTER.forEach(r => r.sites.slice(0, 3).forEach(site => picks.push(site)));
+  const items = picks.map(site => `<li>${icon('i-check')}${esc(site)}</li>`).join('');
+  // second copy makes the loop seamless; hidden from assistive tech
+  track.innerHTML = items + items.replace(/<li>/g, '<li aria-hidden="true">');
+})();
+
+/* ---------- register facts count up once ---------- */
+function countUp(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('#reg-facts dd').forEach(dd => {
+    const end = parseInt(dd.textContent, 10); if(!end) return;
+    const t0 = performance.now(), dur = 1100;
+    const step = now => {
+      const k = Math.min(1, (now - t0) / dur);
+      dd.textContent = Math.round(end * (1 - Math.pow(1 - k, 4)));
+      if(k < 1) requestAnimationFrame(step);
+    };
+    dd.textContent = '0';
+    requestAnimationFrame(step);
+  });
+}
+
 /* ---------- reveals ---------- */
 const io = new IntersectionObserver(entries=>{
   entries.forEach(en=>{
     if(!en.isIntersecting) return;
     const el = en.target;
     if(el.id==='ledger') el.classList.add('unfolded'); else el.classList.add('in');
+    if(el.id==='reg-facts') countUp();
     io.unobserve(el);
   });
 },{rootMargin:'0px 0px -12% 0px', threshold:0.08});
-document.querySelectorAll('.rv, #steps, #why-map, #why-photo, #ledger').forEach(el=>io.observe(el));
+document.querySelectorAll('.rv, #steps, #why-map, #why-photo, #ledger, #reg-facts').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
