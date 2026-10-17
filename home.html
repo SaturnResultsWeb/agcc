@@ -741,8 +741,8 @@ html.lenis,html.lenis body{height:auto}
 .hero-foot{border-top-color:rgba(193,250,255,.16)}
 
 /* reach chapter: copy holds still while the globe turns to Alderney */
-.reach{min-height:175vh}
-.reach .wrap{min-height:175vh;display:grid;grid-template-columns:repeat(12,1fr);gap:2rem}
+.reach{min-height:270vh}
+.reach .wrap{min-height:270vh;display:grid;grid-template-columns:repeat(12,1fr);gap:2rem}
 .reach-copy{grid-column:1 / span 5;position:sticky;top:calc(50vh - 14rem);align-self:start;margin-top:30vh;padding:2rem 2.25rem;border-radius:22px;background:rgba(4,10,30,.55);border:1px solid rgba(193,250,255,.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .reach .kicker{color:var(--gorse)}
 .reach .lede{color:oklch(0.88 0.015 230)}
@@ -766,7 +766,7 @@ html.lenis,html.lenis body{height:auto}
   .reach-copy{grid-column:1 / span 8}
 }
 @media (max-width:720px){
-  .reach,.reach .wrap{min-height:160vh}
+  .reach,.reach .wrap{min-height:240vh}
   .reach-copy{grid-column:1 / -1;top:52vh;margin-top:52vh;padding:1.25rem 1.2rem 1.35rem;border-radius:18px;background:rgba(4,10,30,.72)}
   .reach .h2{font-size:1.85rem}
   .reach .lede{font-size:.95rem;margin-top:.6rem}
@@ -1578,14 +1578,14 @@ const PLANET_LIGHTS_GLB = ASSET_BASE_URL + '/planet-lights.glb';
 const PLANET_CLOUDS_PNG = ASSET_BASE_URL + '/planet-clouds.png';
 
 const CONFIG = {
-  rimColor:'#c1faff', rimPower:2.4, nightLights:10, terrainDepth:0.33, terrainShade:1.3,
-  oceanGlint:0.45, oceanDeep:0.12, oceanFlow:3, oceanFlowSpeed:0.8, oceanFlowScale:2.1,
+  rimColor:'#c1faff', rimPower:2.4, nightLights:10, terrainDepth:0.0, terrainShade:0.0,  // relief off: it drew dotted seams along mesh edges
+  oceanGlint:0.45, oceanDeep:0.12, oceanFlow:0, oceanFlowSpeed:0.8, oceanFlowScale:2.1,
   glowColor:'#3a6cff', glowIntensity:3.35, planetRadius:1.95, spin:0.03, initRotation:2.07,
   tilt:0.37, autoRotate:0,
   cloud1Height:1.005, cloud1Opacity:0.6, cloud1Spin:0.06,
   cloud2Height:1.03, cloud2Opacity:0.5, cloud2Spin:0.14,
   cloud3Height:1.075, cloud3Opacity:0.5, cloud3Spin:0.1,
-  bgColor:'#040a1e', flameColor:'#3a6cff', flameColor2:'#c1faff', flameAmt:0.15,
+  bgColor:'#040a1e', flameColor:'#3a6cff', flameColor2:'#c1faff', flameAmt:0.0,
   atmoColor:'#9fc4ff', atmoCount:320, atmoSize:22, atmoSpeed:0.8,
   starColor:'#cfe0ff', starCount:1400, starSize:1.6, starFlicker:1,
   // AGCC: markers in Alderney gorse instead of generic gold
@@ -1770,8 +1770,9 @@ const starMat = (() => {
   return m;
 })();
 
-/* ---------- ambient motes ---------- */
-const atmo = (() => {
+/* ---------- ambient motes: removed (read as swirling lines) ---------- */
+const atmo = { m:null };
+const _unusedMotes = (() => {
   const n = NARROW() ? 160 : CONFIG.atmoCount;
   const pos = new Float32Array(n * 3), size = new Float32Array(n), seed = new Float32Array(n);
   for(let i = 0; i < n; i++){
@@ -1810,10 +1811,8 @@ const atmo = (() => {
     pts.position.copy(camera.position);
     finalPass.uniforms.iTime.value = REDUCED ? 0 : t;
   };
-  onLayer(pts, LAYERS.BLOOM_SCENE);
-  scene.add(pts);
   return { pts, m };
-})();
+});
 
 /* ---------- planet ---------- */
 let planetTime = 0, cloudTime = 0, markerTime = 0;
@@ -1822,7 +1821,8 @@ const cloudUniforms = [];
 const cloudMeshes = [];
 let planetMesh = null, markerMat = null, alderneyLocal = null, alderneyRot = null;
 let entryStart = -1;
-const LOCK_TIP = 0.62;  // lean the north toward the viewer so Alderney sits mid-disc
+const LOCK_TIP = 0.62;
+const ZOOM_FROM = 0.66, ZOOM_TO = 0.97;  // scroll window for the dive onto Alderney  // lean the north toward the viewer so Alderney sits mid-disc
 const ENTRY_DUR = 1.9, ENTRY_START_Y = -6.5;
 
 const draco = new DRACOLoader();
@@ -1858,7 +1858,7 @@ vec3 currentColor = gl_FragColor.rgb;
 float blueDom = currentColor.b - max(currentColor.r, currentColor.g);
 float waterMask = clamp(smoothstep(-0.005, 0.03, blueDom), 0.0, 1.0);
 float shimmer = snoise(vec3(vCustomUv.x * noiseScale + time * speedX, vCustomUv.y * noiseScale - time * speedY, time * speedZ));
-gl_FragColor.rgb += waterMask * shimmer * 0.025;
+// (ocean shimmer removed: too busy)
 float fT = time * oceanFlowSpeed * 4.0;
 float fS = 4.0 * oceanFlowScale;
 float warp = snoise(vec3(vCustomUv.x * fS - fT * 0.5, vCustomUv.y * fS + fT * 0.4, fT * 0.5));
@@ -1983,7 +1983,7 @@ function buildMarkers(mesh){
   geo.setAttribute('position', new THREE.Float32BufferAttribute(out, 3));
   geo.setAttribute('seed', new THREE.Float32BufferAttribute(seeds, 1));
   markerMat = new THREE.ShaderMaterial({
-    uniforms:{ uTime:{value:0}, uColor:{value:hexToVec3(CONFIG.markerColor)}, uSize:{value:CONFIG.markerSize}, uSpeed:{value:CONFIG.markerSpeed}, uRes:{value:new THREE.Vector2(W(), H())} },
+    uniforms:{ uTime:{value:0}, uZoom:{value:0}, uColor:{value:hexToVec3(CONFIG.markerColor)}, uSize:{value:CONFIG.markerSize}, uSpeed:{value:CONFIG.markerSpeed}, uRes:{value:new THREE.Vector2(W(), H())} },
     vertexShader:`attribute float seed; uniform float uSize; uniform vec2 uRes;
       varying float vSeed; varying float vFade; varying float vHero;
       void main(){
@@ -1994,10 +1994,10 @@ function buildMarkers(mesh){
         vec3 vd = normalize(-mv.xyz);
         vFade = smoothstep(0.15, 0.5, dot(vn, vd));
         float sz = uSize * (vHero > 0.5 ? 3.2 : 1.0);
-        gl_PointSize = max(sz * uRes.y / 900.0 * (7.0 / max(-mv.z, 1.0)), 2.0);
+        gl_PointSize = vHero > 0.5 ? clamp(sz * uRes.y / 900.0 * 0.9, 10.0, 64.0) : max(sz * uRes.y / 900.0 * (7.0 / max(-mv.z, 1.0)), 2.0);
         gl_Position = projectionMatrix * mv;
       }`,
-    fragmentShader:`uniform vec3 uColor; uniform float uTime; uniform float uSpeed;
+    fragmentShader:`uniform vec3 uColor; uniform float uTime; uniform float uSpeed; uniform float uZoom;
       varying float vSeed; varying float vFade; varying float vHero;
       void main(){
         if (vFade <= 0.001) discard;
@@ -2008,7 +2008,8 @@ function buildMarkers(mesh){
         float ph = fract(uTime * uSpeed * (vHero > 0.5 ? 0.8 : 1.0) + vSeed);
         float ring = smoothstep(0.07, 0.0, abs(d - ph)) * (1.0 - ph);
         vec3 col = vHero > 0.5 ? vec3(1.0, 0.96, 0.8) : uColor;
-        gl_FragColor = vec4(col, clamp(core + ring, 0.0, 1.0) * vFade);
+        float keep = vHero > 0.5 ? 1.0 : 1.0 - uZoom;
+        gl_FragColor = vec4(col, clamp(core + ring, 0.0, 1.0) * vFade * keep);
       }`,
     transparent:true, blending:THREE.AdditiveBlending, depthTest:true, depthWrite:false,
   });
@@ -2054,8 +2055,7 @@ Promise.all([gltfLoader.loadAsync(PLANET_LIGHTS_GLB), gltfLoader.loadAsync(PLANE
   try { buildMarkers(planetMesh); } catch(e){ /* markers are decorative */ }
   if(alderneyLocal) alderneyLocal.multiplyScalar(s);
   solveAlderneyRotation();
-  buildClouds();
-  cloudGroup.visible = true; glowMesh.visible = true;
+  glowMesh.visible = true;
   entryStart = REDUCED ? -2 : performance.now() / 1000;
   document.documentElement.classList.add('planet-ready');
 }).catch(() => { document.documentElement.classList.add('no-planet'); });
@@ -2099,18 +2099,33 @@ function frame(now){
   } else if(entryStart === -1){
     entryY = ENTRY_START_Y;
   }
-  worldGroup.position.set(curX, curY + entryY, 0);
-  worldGroup.scale.setScalar(curS);
-
-  spinPhase += tdt * CONFIG.spin;
+  spinPhase += tdt * CONFIG.spin * (curP < 0.4 ? 1 : 0);
   const free = CONFIG.initRotation + spinPhase + curP * Math.PI * 1.6;
   let rotY = free;
   if(alderneyRot !== null){
-    const lock = smooth(clamp((curP - 0.45) / 0.5, 0, 1));
+    const lock = smooth(clamp((curP - 0.40) / 0.26, 0, 1));
     rotY = Lerp(free, unwrapNear(alderneyRot, free), lock);
   }
   planetGroup.rotation.y = rotY;
-  planetGroup.rotation.x = alderneyRot !== null ? LOCK_TIP * smooth(clamp((curP - 0.45) / 0.5, 0, 1)) : 0;
+  planetGroup.rotation.x = alderneyRot !== null ? LOCK_TIP * smooth(clamp((curP - 0.40) / 0.26, 0, 1)) : 0;
+
+  // dive: keep Alderney on a fixed screen spot while the globe grows around it
+  const zoomK = alderneyLocal ? smooth(clamp((curP - ZOOM_FROM) / (ZOOM_TO - ZOOM_FROM), 0, 1)) : 0;
+  if(zoomK > 0){
+    const S = Lerp(curS, narrow ? 4.4 : 5.6, zoomK);
+    planetGroup.updateMatrix();
+    const off = tmp.copy(alderneyLocal).applyMatrix4(planetGroup.matrix);
+    const a0x = curX + off.x * curS, a0y = curY + entryY + off.y * curS, a0z = off.z * curS;
+    const tx = narrow ? -0.35 : 1.45 * sideScale, ty = narrow ? 0.95 : 0.05, tz = 2.6;
+    const px = Lerp(a0x, tx, zoomK), py = Lerp(a0y, ty, zoomK), pz = Lerp(a0z, tz, zoomK);
+    worldGroup.scale.setScalar(S);
+    worldGroup.position.set(px - off.x * S, py - off.y * S, pz - off.z * S);
+  } else {
+    worldGroup.position.set(curX, curY + entryY, 0);
+    worldGroup.scale.setScalar(curS);
+  }
+  if(markerMat) markerMat.uniforms.uZoom.value = zoomK;
+
   glowMesh.quaternion.copy(camera.quaternion);
 
   planetTime += tdt / 12; cloudTime += tdt / 20; starTime += tdt; markerTime += tdt;
@@ -2136,7 +2151,7 @@ function frame(now){
     tmp.project(camera);
     const x = (tmp.x * 0.5 + 0.5) * innerWidth, y = (-tmp.y * 0.5 + 0.5) * innerHeight;
     const ob = opening.getBoundingClientRect().bottom;
-    const show = curP > 0.62 && pTarget < 0.985 && ob > innerHeight * 0.98 && facing > 0.35 && entryY > -0.05;
+    const show = curP > 0.55 && pTarget < 0.99 && ob > innerHeight * 0.98 && facing > 0.35 && entryY > -0.05;
     tag.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
     tag.classList.toggle('on', show);
   }
@@ -2155,7 +2170,7 @@ addEventListener('resize', () => {
   camera.aspect = w / h; camera.updateProjectionMatrix();
   renderer.setPixelRatio(pr()); renderer.setSize(w, h, false);
   [torusComposer, bloomComposer, finalComposer].forEach(c => { c.setPixelRatio(pr()); c.setSize(w, h); });
-  [starMat, atmo.m, markerMat].forEach(m => m && m.uniforms.uRes.value.set(w, h));
+  [starMat, markerMat].forEach(m => m && m.uniforms.uRes.value.set(w, h));
 });
 
 /* ---------- smooth scroll ---------- */
